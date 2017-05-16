@@ -52,6 +52,46 @@ public class Shovel
         return singleCellTexts;
 
     }
+
+    public List<SingleCellText> dbShovel (int typeID)
+    {
+        List<SingleCellText> singleCellTexts = new ArrayList<>();
+
+        try
+        {
+            Class.forName(jdbcDriver);
+            Connection conn = DriverManager.getConnection(dbURL, user, pass);
+
+            String sqlQuery = "SELECT * FROM sql11172288.text_description WHERE type_id = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
+            pstmt.setInt(1, typeID);
+
+            ResultSet rs = pstmt.executeQuery();
+
+            while(rs.next())
+            {
+                singleCellTexts.add(new SingleCellText(rs.getInt("type_id"), rs.getInt("cat_id"),
+                        rs.getString("actual_text")));
+            }
+
+            rs.close();
+            pstmt.close();
+            conn.close();
+        }
+        catch (ClassNotFoundException e)
+        {
+            System.out.println("Couldn't load driver");
+        }
+        catch (SQLException e)
+        {
+            System.out.println("Couldn't connect to db");
+            e.printStackTrace();
+        }
+
+        return singleCellTexts;
+
+    }
+
     public List<SingleCellText> dbLinkShovel()
     {
         List<SingleCellText> linkRefs = new ArrayList<>();

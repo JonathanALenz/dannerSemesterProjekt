@@ -62,19 +62,16 @@ public class Logic
         return txt;
     }
 
-    public String specAns(int catId)
+    public String getHenvisninger(int typeID)
     {
-        List<SingleCellText> singleCellTexts = shovel.dbExampleAnsShovel(); // ENESTE LINJE ANDERLEDES FRA SPECREFS
-        String chosenExampleAns = "";
+        List<SingleCellText> singleCellTexts = shovel.dbShovel(typeID);
+        String txt = "";
 
         for (SingleCellText sct : singleCellTexts)
         {
-            if(sct.getCat_id() == catId)
-            {
-                chosenExampleAns += "\t" + "- " + sct.getText() + "\n\n";
-            }
+            txt += sct.getText() + "\n\n";
         }
-        return chosenExampleAns;
+        return txt;
     }
 
     public String specGText(int catId)

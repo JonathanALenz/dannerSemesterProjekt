@@ -13,7 +13,7 @@ public class Show {
 
         Stage window = new Stage();
         GridPane layout = new GridPane();
-        window.setTitle("tekster");
+        window.setTitle("Tekster");
 
         window.setMinWidth(1000);
         window.setMinHeight(650);
