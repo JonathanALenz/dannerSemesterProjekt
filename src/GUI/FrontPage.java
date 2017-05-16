@@ -65,6 +65,7 @@ public class FrontPage
         button_henvisningsliste.setOnAction(e->
         {
             Show.vis(logic.getHenvisninger(2));
+
         });
 
 
