@@ -24,16 +24,6 @@ public class Shovel
 
 
 
-
-
-
-
-
-
-
-
-
-
     public List<SingleCellText> dbLinkShovel()
     {
         List<SingleCellText> linkRefs = new ArrayList<>();
