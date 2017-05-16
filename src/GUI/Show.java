@@ -35,8 +35,8 @@ public class Show {
         // + "-fx-background-color: aqua");
 
         main_body.setStyle(""
-                + "-fx-font-size: 18px;"
-                + "-fx-font-style: italic;"
+                + "-fx-font-size: 12px;"
+//                + "-fx-font-style: italic;"
                 //  + "-fx-font-weight: bold;"
                 + "-fx-font-family: fantasy;");
         //kopi end
