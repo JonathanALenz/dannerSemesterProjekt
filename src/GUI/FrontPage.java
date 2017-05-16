@@ -79,9 +79,9 @@ public class FrontPage
         label_all_vold.setOnMouseClicked(e->
         {
 
-            String message = logic.specLinks(3);
+//            String message = logic.specLinks(3);
 
-            Show.vis(message);
+//            Show.vis(message);
         });
 
         CheckBox checkBox_vold_generalt = new CheckBox("Generelt");
@@ -324,36 +324,103 @@ public class FrontPage
 
         if (v_generalt.isSelected())
         {
-            stringvGeneralt = logic.specGText(31) + "\n\n";
+            stringvGeneralt = "VOLD\n\n" + logic.genLogic(0, 8) + "\n\n" +
+                              "VOLDENS 5 FORMER(ofte er alle 5 former tilstede):\n\n" + logic.specLogic(7, 8);
         }
         if (v_sex.isSelected())
         {
-            stringvSex = "SEKSUEL VOLD\n\nGENERELT:\n\n" + logic.specGText(10) +
-                         "\n\nEKSEMPLER PÅ SVAR:\n\n" + logic.specAns(10) + "\n\n";
+            stringvSex = "SEKSUEL VOLD\n\nGENERELT:\n\n" + logic.genLogic(0,11) + "\n\n" +
+                         "EKSEMPLER PÅ SVAR:\n\n" + logic.specLogic(1, 11)  +
+                         "HENVISNGER:\n\n" + logic.specLogic(2, 11);
         }
 
-//        if (v_psygisk.isSelected()) {stringvPsygisk = tekster.vold_psy + "\n\n";}
-//        if (v_fysisk.isSelected()) {stringvFysisk = tekster.vold_fys + "\n\n";}
-//        if (v_materiel.isSelected()) {stringvMateriel = tekster.vold_mat + "\n\n";}
-//        if (v_oekonomi.isSelected()) {stringvOekonomi = tekster.vold_oeko + "\n\n";}
-//        if (unge.isSelected()) {stringUnge = tekster.unge + "\n\n";}
-//        if (BogV_gen.isSelected()) {stringBogVgen = tekster.boern_og_vold_gen + "\n\n";}
-//        if (BogV_VI.isSelected()) {stringBogVVI = tekster.boern_og_vold_voksen_indskriver + "\n\n";}
-//        if (BogV_BI.isSelected()) {stringBogVBI = tekster.boern_og_vold_barn_indskriver + "\n\n";}
-//        if (venner_skriver.isSelected()) {stringVennerSkriver = "VENNNER SKRIVER" + "\n\n";}
-//        if (man_gen.isSelected()) {stringMandGen = "MAND GENERELT" + "\n\n";}
-//        if (mand_udoever.isSelected()) {stringMandUdoever = "MAND UDØVERE" + "\n\n";}
-//        if (mand_ofre.isSelected()) {stringMandOfre = "MAND OFRE" + "\n\n";}
-//        if (netvaerk.isSelected()) {stringNetvaerk = "NETVÆRK" + "\n\n";}
-//        if (Skilsmisser_gen.isSelected()) {stringSkilsmisser = tekster.skilsmisser + "\n\n";}
-//        if (misbrug.isSelected()) {stringMisbrug = "MISBRUG" + "\n\n";}
+        if (v_psygisk.isSelected())
+        {
+            stringvPsygisk = "PSYGISK VOLD\n\nGENERELT:\n\n" + logic.genLogic(0,10) + "\n\n" +
+                             "EKSEMPLER PÅ SVAR:\n\n" + logic.specLogic(1,10);
+        }
+        if (v_fysisk.isSelected())
+        {
+            stringvFysisk = "FYSISK VOLD\n\nGENERELT:\n\n" + logic.genLogic(0,9) + "\n\n";
+        }
+        if (v_materiel.isSelected())
+
+        {
+            stringvMateriel = "MATERIEL VOLD\n\nGENERELT:\n\n" + logic.genLogic(0,12) + "\n\n";
+        }
+        if (v_oekonomi.isSelected())
+        {
+            stringvOekonomi = "ØKONOMISK VOLD\n\nGENERELT:\n\n" + logic.genLogic(0, 13)+ "\n\n" +
+                              "EKSEMPLER PÅ SVAR:\n\n" + logic.specLogic(1,13);
+        }
+        if (unge.isSelected())
+        {
+            stringUnge = "UNGE\n\nGENERELT:\n\n" + logic.genLogic(0,6) + "\n\n" +
+                         "EKSEMPLER PÅ SVAR:\n\n" + logic.specLogic(1,6) +
+                         "HENVISNINGER:\n\n" + logic.specLogic(2,6);
+        }
+        if (BogV_gen.isSelected())
+        {
+            stringBogVgen = "BØRN OG VOLD\n\nGENERELT:\n\n" + logic.genLogic(0,14) + "\n\n";
+        }
+        if (BogV_VI.isSelected())
+        {
+            stringBogVVI = "NÅR INDSKRIVER ER VOKSEN:\n\n" + logic.genLogic(0,15) + "\n\n" +
+                    "EKSEMPLER PÅ SVAR:\n\n" + logic.specLogic(1,15);
+        }
+        if (BogV_BI.isSelected())
+        {
+            stringBogVBI = "NÅR INDSKRIVER ER BARN:\n\n" + logic.genLogic(0,16) + "\n\n" +
+                    "EKSEMPLER PÅ SVAR:\n\n" + logic.specLogic(1,16) +
+                    "HENVISNINGER\n\n" + logic.specLogic(2,16);
+        }
+        if (venner_skriver.isSelected())
+        {
+            stringVennerSkriver = "NÅR VEN ELLER FAMILIE SKRIVER IND:\n\nGENERELT:\n\n" +
+                                   logic.genLogic(0,5) + "\n\n" +
+                                  "EKSEMPLER PÅ SVAR:\n\n" + logic.specLogic(1,5);
+        }
+        if (man_gen.isSelected())
+        {
+            stringMandGen = "MÆND\n\nGENERELT:\n\n" + logic.genLogic(0,7) + "\n\n";
+        }
+        if (mand_udoever.isSelected())
+        {
+            stringMandUdoever = "HJÆLP TIL UDØVERE AF VOLD\n\nEKSEMPLER PÅ TEKSTER\n\n" + logic.specLogic(18,7);
+        }
+        if (mand_ofre.isSelected())
+        {
+            stringMandOfre = "HJÆLP TIL MÆND UDSAT FOR VOLD\n\n" +
+                             "HENVISNINGER(OVERNATNINGSMULIGHEDER & RÅDGIVNING\n\n" + logic.specLogic(2,7);
+        }
+        if (netvaerk.isSelected())
+        {
+            stringNetvaerk = "NETVÆRK\n\nGENERELT:\n\n" + logic.genLogic(0,19) + "\n\n" +
+                             "EKSEMPLER PÅ SVAR:\n\n" + logic.specLogic(1,19);
+        }
+        if (Skilsmisser_gen.isSelected())
+        {
+            stringSkilsmisser = "SKILSMISSER\n\nGENERELT:\n\n" + logic.genLogic(0,17) + "\n\n" +
+                                "EKSEMPLER PÅ SVAR\n\n" + logic.specLogic(1,17);
+        }
+        if (misbrug.isSelected())
+        {
+            stringMisbrug = "MISBRUGERE OG PSYIGISK SYGE\n\nGENERELT:\n\n" + logic.genLogic(0,4) + "\n\n" +
+                            "EKSEMPLER PÅ SVAR:\n\n" + logic.specLogic(1,4) +
+                            "HENVISNINGER:\n\n" + logic.specLogic(2,4);
+        }
 //        if (p_laege.isSelected()) {stringLaege =  "PRO LÆGE" + "\n\n";}
 //        if (p_psykolog.isSelected()) {stringPsykolog =  "PRO PSYKO" + "\n\n";}
 //        if (p_polti.isSelected()) {stringPoliti = "PANSER" + "\n\n";}
 //        if (p_retshjaelp.isSelected()) {stringRetshjaelp = "PRO RETSHJÆLP" + "\n\n";}
 //        if (p_sygehus.isSelected()) {stringSygehus = "PRO SYGEHUS" + "\n\n";}
 //        if (p_oekonomi.isSelected()) {stringoekonomi = "PRO ØKONOMI" + "\n\n";}
-//        if (etniske.isSelected()) {stringEtniske = "ETNISKE" + "\n\n";}
+        if (etniske.isSelected())
+        {
+            stringEtniske = "ETNISKE KVINDER\n\nGENERELT:\n\n" + logic.genLogic(0,18) + "\n\n" +
+                            "EKSEMPLER PÅ SVAR:\n\n" + logic.specLogic(1,18) +
+                            "HENVISNINGER:\n\n" + logic.specLogic(2,18);
+        }
 
         String msg = (stringvGeneralt + stringvSex + stringvPsygisk + stringvFysisk + stringvMateriel + stringvOekonomi +
                 stringUnge + stringBogVgen + stringBogVVI + stringBogVBI + stringVennerSkriver + stringMandGen + stringMandUdoever +

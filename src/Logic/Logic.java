@@ -4,6 +4,7 @@ import Database.Shovel;
 import Database.SingleCellText;
 import Database.User;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,20 +19,47 @@ public class Logic
         shovel = new Shovel();
     }
 
-    public String specLinks(int catId)
+    public String genLogic(int typeID, int catID)
+    {
+        List<SingleCellText> singleCellTexts = shovel.dbShovel(typeID, catID);
+        String txt = "";
+        String nyTxt = "";
+
+        for (SingleCellText sct: singleCellTexts)
+        {
+            txt += sct.getText();
+        }
+
+        String[] splittedString = txt.split(" ");
+
+        for (int i = 0; i < splittedString.length; i++)
+        {
+            if(splittedString[i].equals("#n"))
+            {
+                nyTxt += "\n";
+            }
+            else
+            {
+                nyTxt += splittedString[i] + " ";
+            }
+        }
+        return nyTxt;
+    }
+
+
+    public String specLogic(int typeID, int catID)
     {
 
-        List<SingleCellText> singleCellTexts = shovel.dbLinkShovel(); // ENESTE LINJE ANDERLEDES FRA SPECANS
-        String chosenRefs = "";
+        List<SingleCellText> singleCellTexts = shovel.dbShovel(typeID, catID);
+        String txt = "";
 
         for (SingleCellText sct : singleCellTexts)
         {
-            if(sct.getCat_id() == catId)
-            {
-                chosenRefs += sct.getText() + "\n";
-            }
+
+            txt += "\t- " + sct.getText() + "\n\n";
+
         }
-        return chosenRefs;
+        return txt;
     }
 
     public String specAns(int catId)
@@ -56,26 +84,7 @@ public class Logic
         String[] splittedString;
         String ny = "";
 
-        for (SingleCellText sct: singleCellTexts)
-        {
-            if(sct.getCat_id() == catId)
-            {
-                chosenGTexts += sct.getText();
-                splittedString = chosenGTexts.split(" ");
 
-                for (int i = 0; i < splittedString.length; i++)
-                {
-                    if(splittedString[i].equals("#n"))
-                    {
-                        ny += "\n";
-                    }
-                    else
-                    {
-                        ny += splittedString[i] + " ";
-                    }
-                }
-            }
-        }
         return ny;
     }
 

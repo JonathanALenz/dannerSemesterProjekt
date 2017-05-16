@@ -17,7 +17,7 @@ public class GUI
 
     public void printRefs()
     {
-        System.out.println(logic.specLinks(10));
+//        System.out.println(logic.specLinks(10));
     }
 
     public void printExampleAns()

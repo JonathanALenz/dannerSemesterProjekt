@@ -13,35 +13,26 @@ public class Shovel
     static final String user = "sql11172288";
     static final String pass = "Ms1HFKqZXP";
 
-
-
-
-
-
-
-
-
-
-
-
-    public List<SingleCellText> dbLinkShovel()
+    public List<SingleCellText> dbShovel (int typeID, int catID)
     {
-        List<SingleCellText> linkRefs = new ArrayList<>();
+        List<SingleCellText> singleCellTexts = new ArrayList<>();
 
         try
         {
             Class.forName(jdbcDriver);
             Connection conn = DriverManager.getConnection(dbURL, user, pass);
 
-            String sqlQuery = "SELECT * FROM sql11172288.link_references";
-
+            String sqlQuery = "SELECT * FROM sql11172288.text_description WHERE type_id = ? AND cat_id = ?";
             PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
+            pstmt.setInt(1, typeID);
+            pstmt.setInt(2, catID);
 
             ResultSet rs = pstmt.executeQuery();
 
             while(rs.next())
             {
-                linkRefs.add(new SingleCellText(rs. getInt("type_id"), rs.getInt("cat_id"), rs.getString("ref_name")));
+                singleCellTexts.add(new SingleCellText(rs.getInt("type_id"), rs.getInt("cat_id"),
+                        rs.getString("actual_text")));
             }
 
             rs.close();
@@ -57,6 +48,15 @@ public class Shovel
             System.out.println("Couldn't connect to db");
             e.printStackTrace();
         }
+
+        return singleCellTexts;
+
+    }
+    public List<SingleCellText> dbLinkShovel()
+    {
+        List<SingleCellText> linkRefs = new ArrayList<>();
+
+
 
         return linkRefs;
     }
