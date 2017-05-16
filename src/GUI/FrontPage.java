@@ -64,7 +64,7 @@ public class FrontPage
         Button button_henvisningsliste = new Button ("Henvisningsliste");
         button_henvisningsliste.setOnAction(e->
         {
-//            Show.vis(tekster.henvisningsliste);
+            Show.vis(logic.getHenvisninger(2));
         });
 
 
