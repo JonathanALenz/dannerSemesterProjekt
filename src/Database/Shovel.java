@@ -13,6 +13,27 @@ public class Shovel
     static final String user = "sql11172288";
     static final String pass = "Ms1HFKqZXP";
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public List<SingleCellText> dbLinkShovel()
     {
         List<SingleCellText> linkRefs = new ArrayList<>();
@@ -30,7 +51,7 @@ public class Shovel
 
             while(rs.next())
             {
-                linkRefs.add(new SingleCellText(rs.getInt("cat_id"), rs.getString("ref_name")));
+                linkRefs.add(new SingleCellText(rs. getInt("type_id"), rs.getInt("cat_id"), rs.getString("ref_name")));
             }
 
             rs.close();
@@ -67,7 +88,7 @@ public class Shovel
 
             while(rs.next())
             {
-                exampleAns.add(new SingleCellText(rs.getInt("cat_id"), rs.getString("ans_text")));
+                exampleAns.add(new SingleCellText(rs.getInt("type_id"), rs.getInt("cat_id"), rs.getString("ans_text")));
             }
 
             rs.close();
@@ -104,7 +125,7 @@ public class Shovel
 
             while(rs.next())
             {
-                gTexts.add(new SingleCellText(rs.getInt("id"), rs.getString("actual_text")));
+                gTexts.add(new SingleCellText(rs.getInt("type_id"), rs.getInt("id"), rs.getString("actual_text")));
             }
 
             rs.close();
