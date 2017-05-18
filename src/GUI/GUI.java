@@ -22,7 +22,7 @@ public class GUI
 
     public void printExampleAns()
     {
-        System.out.println(logic.specAns(4));
+        System.out.println(logic.specGText(4));
     }
 
     public void printGText()

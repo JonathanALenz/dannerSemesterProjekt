@@ -44,19 +44,29 @@ public class FrontPage
         Button button_netraadgivning_og_metode = new Button("Netrådgivning og metode");
         button_netraadgivning_og_metode.setOnAction(e->
         {
-//            Show.vis(tekster.netraadgivning_og_metoder);
+            Show.vis("Generelt\n" + logic.genLogic(0,0) + "\n\n" +
+                    "Gode formuleringer:\n" + logic.specLogic(5,0) + "\n\n" +
+                    "Vores rolle er:\n" + logic.specLogic(6,0) +"\n\n" +
+                    "Undgå at:\n" + logic.specLogic(4,0) + "\n\n");
         });
 
         Button button_besvarelse = new Button ("Besvarelse");
         button_besvarelse.setOnAction(e->
         {
-//            Show.vis(tekster.besvarelse);
+            Show.vis("Generelt\n" + logic.genLogic(0,1) + "\n\n" +
+                    "Indledning - Sådan indleder du en besvarelse:\n" +
+                    "Eksempler på tekster\n" + logic.specLogic(13,1) + "\n\n" +
+                    "Midte - Sådan rådgiver du:\n" + logic.genLogic(17,1) + "\n\n" +
+                    "Afslutning - Sådan afslutter du en besvarelse\n\nAfslutningsvis åbner vi for " +
+                    "at indskriver altid er velkommen til at tage kontakt igen.\n" + logic.specLogic(14,1));
         });
 
         Button button_krisevurdering = new Button("Krisevurdering");
         button_krisevurdering.setOnAction(e->
         {
-//            Show.vis(tekster.krisevurdering);
+            Show.vis("Generelt\n" + logic.genLogic(0,2) + "\n\n" +
+                    "Eksempler på tekster:\n" + logic.specLogic(1,2) + "\n\n" +
+                    "Henvisninger:\n" + logic.specLogic(2,2));
         });
 
         Button button_generalt = new Button ("Generelt");
