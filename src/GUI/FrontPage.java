@@ -1,6 +1,7 @@
 package GUI;
 
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -221,6 +222,7 @@ public class FrontPage
 
         Button button_search = new Button("Vis");
         button_search.setPrefSize(70,40);
+        buttomright.setAlignment(Pos.BOTTOM_RIGHT);
         button_search.setOnAction(e->
         {
 
@@ -294,12 +296,11 @@ public class FrontPage
         topstuff.getChildren().addAll(button_netraadgivning_og_metode, button_besvarelse, button_krisevurdering,
                 button_generelt, button_henvisningsliste);
 
-        buttomright.getChildren().addAll(button_search);
-
         if (user_level == 1)
         {
             buttomright.getChildren().addAll(button_rediger, button_opret);
         }
+        buttomright.getChildren().addAll(button_search);
 
         borderPane.setBottom(buttomright);
         borderPane.setTop(topstuff);
