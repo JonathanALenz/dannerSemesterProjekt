@@ -15,11 +15,11 @@ public class Shovel
      *  for at vi kan tilgå brugerens rettigheder, navn og ID med et enkelt opslag til DB.
      */
 
-    static final String jdbcDriver = "com.mysql.jdbc.Driver";
-    static final String dbURL = "jdbc:mysql://sql11.freemysqlhosting.net:3306";
+    private static final String jdbcDriver = "com.mysql.jdbc.Driver";
+    private static final String dbURL = "jdbc:mysql://sql11.freemysqlhosting.net:3306";
 
-    static final String user = "sql11172288";
-    static final String pass = "Ms1HFKqZXP";
+    private static final String user = "sql11172288";
+    private static final String pass = "Ms1HFKqZXP";
 
     public List<SingleCellText> dbShovel (int typeID, int catID)
     {
