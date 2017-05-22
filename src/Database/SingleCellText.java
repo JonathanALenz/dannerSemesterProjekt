@@ -16,6 +16,7 @@ public class SingleCellText
         this.text = text;
     }
 
+
     public int getType_id()
     {
         return type_id;

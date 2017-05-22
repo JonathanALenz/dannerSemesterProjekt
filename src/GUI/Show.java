@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 
 
 public class Show {
-    public static void vis(String message) {
+    public void vis(String message) {
 
         Stage window = new Stage();
         GridPane layout = new GridPane();

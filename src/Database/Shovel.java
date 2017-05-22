@@ -100,6 +100,45 @@ public class Shovel
 
     }
 
+
+
+    public List<SingleCellText> searchWord(String word)
+    {
+        List<SingleCellText> singleCellTexts = new ArrayList<>();
+        try
+        {
+            Class.forName(jdbcDriver);
+            Connection conn = DriverManager.getConnection(dbURL, user, pass);
+
+            //PreparedStatement!
+            String sqlQuery = "SELECT * FROM sql11172288.text_description WHERE actual_text LIKE ?";
+            PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
+            pstmt.setString(1,"%" + word + "%");
+
+            ResultSet rs = pstmt.executeQuery();
+
+            while(rs.next())
+            {
+                singleCellTexts.add(new SingleCellText(rs.getInt("type_id"), rs.getInt("cat_id"),
+                rs.getString("actual_text")));
+            }
+
+            rs.close();
+            pstmt.close();
+            conn.close();
+        }
+        catch (ClassNotFoundException e)
+        {
+            System.out.println("Couldn't load driver");
+        }
+        catch (SQLException e)
+        {
+            System.out.println("Fejl");
+            e.printStackTrace();
+        }
+        return singleCellTexts;
+    }
+
     public User getUser(String userName, int userPass)
     {
         User loginUser = null;

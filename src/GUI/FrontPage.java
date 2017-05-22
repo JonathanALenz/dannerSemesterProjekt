@@ -22,10 +22,12 @@ public class FrontPage
      **
      */
     private Logic logic;
+    private Show show;
 
     public FrontPage()
     {
         logic = new Logic();
+        show = new Show();
     }
 
     public void mainProgram(int user_level)
@@ -50,44 +52,44 @@ public class FrontPage
         Button button_netraadgivning_og_metode = new Button("Netrådgivning og metode");
         button_netraadgivning_og_metode.setOnAction(e->
         {
-            Show.vis("Generelt\n" + logic.genLogic(0,0) +
-                    "Gode formuleringer:\n" + logic.specLogic(5,0) + "\n\n" +
-                    "Vores rolle er:\n" + logic.specLogic(6,0) +"\n\n" +
-                    "Undgå at:\n" + logic.specLogic(4,0) + "\n\n");
+            show.vis("Generelt\n" + logic.getCellTextFormat(0,0) +
+                    "Gode formuleringer:\n" + logic.getCellText(5,0) + "\n\n" +
+                    "Vores rolle er:\n" + logic.getCellText(6,0) +"\n\n" +
+                    "Undgå at:\n" + logic.getCellText(4,0) + "\n\n");
         });
 
         Button button_besvarelse = new Button ("Besvarelse");
         button_besvarelse.setOnAction(e->
         {
-            Show.vis("Generelt\n" + logic.genLogic(0,1) +
+            show.vis("Generelt\n" + logic.getCellTextFormat(0,1) +
                     "Indledning - Sådan indleder du en besvarelse:\n" +
-                    "Eksempler på tekster\n" + logic.specLogic(13,1) + "\n\n" +
-                    "Midte - Sådan rådgiver du:\n" + logic.genLogic(17,1) +
+                    "Eksempler på tekster\n" + logic.getCellText(13,1) + "\n\n" +
+                    "Midte - Sådan rådgiver du:\n" + logic.getCellTextFormat(17,1) +
                     "Afslutning - Sådan afslutter du en besvarelse\n\nAfslutningsvis åbner vi for " +
-                    "at indskriver altid er velkommen til at tage kontakt igen.\n" + logic.specLogic(14,1));
+                    "at indskriver altid er velkommen til at tage kontakt igen.\n" + logic.getCellText(14,1));
         });
 
         Button button_krisevurdering = new Button("Krisevurdering");
         button_krisevurdering.setOnAction(e->
         {
-            Show.vis("Generelt\n" + logic.genLogic(0,2) +
-                    "Eksempler på tekster:\n" + logic.specLogic(1,2) + "\n\n" +
-                    "Henvisninger:\n" + logic.specLogic(2,2));
+            show.vis("Generelt\n" + logic.getCellTextFormat(0,2) +
+                    "Eksempler på tekster:\n" + logic.getCellText(1,2) + "\n\n" +
+                    "Henvisninger:\n" + logic.getCellText(2,2));
         });
 
         Button button_generelt = new Button ("Generelt");
         button_generelt.setOnAction(e ->
         {
-            Show.vis("Generelt\n" + logic.genLogic(0,0) +
-                     "Gode formuleringer\n\n" + logic.specLogic(5,0) +
-                     "Vores rolle er:\n\n" + logic.specLogic(6,0) +
-                     "Undgå at:\n\n" + logic.specLogic(4,0));
+            show.vis("Generelt\n" + logic.getCellTextFormat(0,0) +
+                     "Gode formuleringer\n\n" + logic.getCellText(5,0) +
+                     "Vores rolle er:\n\n" + logic.getCellText(6,0) +
+                     "Undgå at:\n\n" + logic.getCellText(4,0));
         });
 
         Button button_henvisningsliste = new Button ("Henvisningsliste");
         button_henvisningsliste.setOnAction(e->
         {
-            Show.vis(logic.specLogic(2));
+            show.vis(logic.getCellText(2));
 
         });
 
@@ -236,7 +238,7 @@ public class FrontPage
                     checkBox_pro_psykolog, checkBox_pro_politi, checkBox_pro_retshjaelp, checkBox_pro_sygehus,
                     checkBox_pro_oekonomi, checkBox_etniske_kvinder_generelt);
 
-            Show.vis(message);
+            show.vis(message);
         });
 
         OpretBruger opretBruger = new OpretBruger();
@@ -255,6 +257,7 @@ public class FrontPage
         button_rediger.setOnAction(e->
         {
 //            AdminRediger.rediger();
+            show.vis(logic.getSearchedWord("statsforvaltning"));
         });
 
         layout.getChildren().addAll(
