@@ -104,10 +104,17 @@ public class FrontPage
         Button button_soeg = new Button("Søg");
         button_soeg.setOnAction(e->
         {
-            show.vis(logic.getSearchedWord(textFieldsoeg.getText()));
+            String tekstFelt = textFieldsoeg.getText();
+            String msg = logic.getSearchedWord(textFieldsoeg.getText());
+            if(!msg.equals(""))
+            {
+                show.vis(msg);
+            }
+            else
+            {
+                ErrorMessage errorMessage3 = new ErrorMessage("Kunne ikke finde " + tekstFelt, "Fejl");
+            }
         });
-
-
 
         //Checkboxe samt Labels
 
