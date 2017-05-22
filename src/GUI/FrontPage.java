@@ -18,6 +18,7 @@ public class FrontPage
 
     /*  Den primære GUI klasse, der indeholder alt fra vores forside.
      *
+     *
      */
     private Logic logic;
 
