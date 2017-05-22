@@ -229,6 +229,7 @@ public class Logic
             {
                 dashs += "-";
             }
+            dashs += "\n";
         }
         dashs += "\n\n";
         return dashs;

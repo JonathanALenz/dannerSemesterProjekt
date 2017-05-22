@@ -1,5 +1,6 @@
 package GUI;
 
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -15,9 +16,8 @@ public class Show {
         GridPane layout = new GridPane();
         window.setTitle("Tekster");
 
-        window.setMinWidth(700);
         window.setMinHeight(450);
-        layout.setPadding(new Insets(2,10,10,10));
+        layout.setPadding(new Insets(10,10,10,10));
         layout.setVgap(8);
         layout.setHgap(6);
         window.initModality(Modality.APPLICATION_MODAL);
@@ -29,12 +29,13 @@ public class Show {
                            "-fx-font-family: fantasy");
 
         main_body.setPrefSize(600,400);
-        GridPane.setConstraints(main_body,0,1);
+        layout.setConstraints(main_body,0,0);
         main_body.setWrapText(true);
 
 
         Button button_return = new Button("Return");
-        GridPane.setConstraints(button_return,1,2);
+        layout.setConstraints(button_return,0,1);
+        layout.setHalignment(button_return, HPos.RIGHT);
         button_return.setOnAction(e->window.close());
 
         layout.getChildren().addAll(main_body, button_return);
