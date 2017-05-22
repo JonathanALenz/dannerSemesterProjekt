@@ -105,7 +105,7 @@ public class FrontPage
         button_soeg.setOnAction(e->
         {
             String tekstFelt = textFieldsoeg.getText();
-            String msg = logic.getSearchedWord(textFieldsoeg.getText());
+            String msg = logic.getSearchedWord(tekstFelt);
             if(!msg.equals(""))
             {
                 show.vis(msg);
