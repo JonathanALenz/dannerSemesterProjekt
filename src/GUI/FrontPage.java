@@ -6,6 +6,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -35,8 +37,11 @@ public class FrontPage
         Stage window = new Stage();
         GridPane layout = new GridPane();
         BorderPane borderPane = new BorderPane();
-        HBox topstuff = new HBox();
+        BorderPane topstuff = new BorderPane();
+
         HBox buttomright = new HBox();
+        HBox topleft = new HBox();
+        HBox topright = new HBox();
 
         buttomright.setPadding(new Insets(10,10,10,10));
         buttomright.setSpacing(8);
@@ -50,7 +55,7 @@ public class FrontPage
         //Button button_home = new Button ("home");
 
         Button button_netraadgivning_og_metode = new Button("Netrådgivning og metode");
-        button_netraadgivning_og_metode.setOnAction(e->
+                button_netraadgivning_og_metode.setOnAction(e->
         {
             show.vis("Generelt\n" + logic.getCellTextFormat(0,0) +
                     "Gode formuleringer:\n" + logic.getCellText(5,0) + "\n\n" +
@@ -91,6 +96,15 @@ public class FrontPage
         {
             show.vis(logic.getCellText(2));
 
+        });
+
+        TextField textFieldsoeg = new TextField();
+        textFieldsoeg.setPromptText("Søg");
+
+        Button button_soeg = new Button("Søg");
+        button_soeg.setOnAction(e->
+        {
+            show.vis(logic.getSearchedWord(textFieldsoeg.getText()));
         });
 
 
@@ -257,7 +271,7 @@ public class FrontPage
         button_rediger.setOnAction(e->
         {
 //            AdminRediger.rediger();
-            show.vis(logic.getSearchedWord("statsforvaltning"));
+
         });
 
         layout.getChildren().addAll(
@@ -296,8 +310,10 @@ public class FrontPage
                 label_tom
         );
 
-        topstuff.getChildren().addAll(button_netraadgivning_og_metode, button_besvarelse, button_krisevurdering,
+        topleft.getChildren().addAll(button_netraadgivning_og_metode, button_besvarelse, button_krisevurdering,
                 button_generelt, button_henvisningsliste);
+
+        topright.getChildren().addAll(textFieldsoeg, button_soeg);
 
         if (user_level == 1)
         {
@@ -305,6 +321,8 @@ public class FrontPage
         }
         buttomright.getChildren().addAll(button_search);
 
+        topstuff.setLeft(topleft);
+        topstuff.setRight(topright);
         borderPane.setBottom(buttomright);
         borderPane.setTop(topstuff);
         borderPane.setCenter(layout);
