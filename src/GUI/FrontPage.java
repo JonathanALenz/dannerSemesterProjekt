@@ -337,6 +337,7 @@ public class FrontPage
         Scene scene = new Scene(borderPane, 950,420);
 
         window.setScene(scene);
+        window.setTitle("Danner - semesterprojekt alpha v0.9");
         window.show();
     }
 }
