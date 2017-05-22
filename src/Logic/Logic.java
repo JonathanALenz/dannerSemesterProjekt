@@ -122,6 +122,7 @@ public class Logic
 
         for (int i = 0; i < singleCellTexts.size(); i++)
         {
+            text += singleCellTexts.get(i).getCat_name().toUpperCase() +"\n";
             text += getCellTextFormatWODB(singleCellTexts.get(i));
             text += "\n\n" + printDash(118);
         }

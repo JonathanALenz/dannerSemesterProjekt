@@ -111,7 +111,14 @@ public class Shovel
             Connection conn = DriverManager.getConnection(dbURL, user, pass);
 
             //PreparedStatement!
-            String sqlQuery = "SELECT * FROM sql11172288.text_description WHERE actual_text LIKE ?";
+            String sqlQuery = "SELECT text_description.id," +
+                    "       text_description.type_id," +
+                    "       text_description.cat_id," +
+                    "       text_description.actual_text," +
+                    "       m_category.category FROM sql11172288.text_description" +
+                    "    INNER JOIN sql11172288.m_category " +
+                    "    ON m_category.id = text_description.cat_id" +
+                    "    WHERE actual_text LIKE ?";
             PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
             pstmt.setString(1,"%" + word + "%");
 
@@ -120,7 +127,7 @@ public class Shovel
             while(rs.next())
             {
                 singleCellTexts.add(new SingleCellText(rs.getInt("type_id"), rs.getInt("cat_id"),
-                rs.getString("actual_text")));
+                rs.getString("actual_text"),rs.getString("category")));
             }
 
             rs.close();

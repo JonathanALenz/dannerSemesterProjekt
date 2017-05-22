@@ -8,6 +8,15 @@ public class SingleCellText
     private int type_id;
     private int cat_id;
     private String text;
+    private String cat_name;
+
+    public SingleCellText(int type_id, int cat_id, String text, String cat_name)
+    {
+        this.type_id = type_id;
+        this.cat_id = cat_id;
+        this.text = text;
+        this.cat_name = cat_name;
+    }
 
     public SingleCellText(int type_id, int cat_id, String text)
     {
@@ -16,6 +25,10 @@ public class SingleCellText
         this.text = text;
     }
 
+    public String getCat_name()
+    {
+        return cat_name;
+    }
 
     public int getType_id()
     {
