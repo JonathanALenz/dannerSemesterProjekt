@@ -52,6 +52,7 @@ public class OpretBruger
 
         ChoiceBox<String> choiceBox = new ChoiceBox();
         choiceBox.getItems().addAll("Admin", "Bruger");
+        choiceBox.getSelectionModel().select("Bruger");
         GridPane.setConstraints(choiceBox, 1,3);
 
         Button button_opret = new Button("Opret");
