@@ -27,22 +27,22 @@ public class Login
         layout_login.setVgap(8);
 
         Label label_user = new Label("User");
-        GridPane.setConstraints(label_user,0,0);
+        layout_login.setConstraints(label_user,0,0);
 
         Label label_password = new Label("Password");
-        GridPane.setConstraints(label_password,0,1);
+        layout_login.setConstraints(label_password,0,1);
 
         TextField textField_user = new TextField();
-        GridPane.setConstraints(textField_user,1,0);
+        layout_login.setConstraints(textField_user,1,0);
         textField_user.setPromptText("Username");
 
         PasswordField textField_password = new PasswordField();
-        GridPane.setConstraints(textField_password,1,1);
+        layout_login.setConstraints(textField_password,1,1);
 
         textField_password.setPromptText("Password");
 
         Button button_login = new Button("Login");
-        GridPane.setConstraints(button_login,1,2);
+        layout_login.setConstraints(button_login,1,2);
 
         FrontPage frontPage = new FrontPage();
 
