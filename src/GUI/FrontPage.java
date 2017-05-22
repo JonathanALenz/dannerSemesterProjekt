@@ -99,7 +99,7 @@ public class FrontPage
         });
 
         TextField textFieldsoeg = new TextField();
-        textFieldsoeg.setPromptText("Søg");
+        textFieldsoeg.setPromptText("Indtast søgeord...");
 
         Button button_soeg = new Button("Søg");
         button_soeg.setOnAction(e->
