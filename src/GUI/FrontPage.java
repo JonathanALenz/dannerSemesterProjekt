@@ -74,8 +74,8 @@ public class FrontPage
                     "Henvisninger:\n" + logic.specLogic(2,2));
         });
 
-        Button button_generalt = new Button ("Generelt");
-        button_generalt.setOnAction(e ->
+        Button button_generelt = new Button ("Generelt");
+        button_generelt.setOnAction(e ->
         {
             Show.vis("Generelt\n" + logic.genLogic(0,0) +
                      "Gode formuleringer\n\n" + logic.specLogic(5,0) +
@@ -107,8 +107,8 @@ public class FrontPage
 //            Show.vis(message);
         });
 
-        CheckBox checkBox_vold_generalt = new CheckBox("Generelt");
-        GridPane.setConstraints(checkBox_vold_generalt,0,1);
+        CheckBox checkBox_vold_generelt = new CheckBox("Generelt");
+        GridPane.setConstraints(checkBox_vold_generelt,0,1);
 
         CheckBox checkBox_vold_sex = new CheckBox("Sex");
         GridPane.setConstraints(checkBox_vold_sex,0,2);
@@ -129,8 +129,8 @@ public class FrontPage
         GridPane.setConstraints(label_born_vold,1,0);
         label_born_vold.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
 
-        CheckBox checkBox_born_vold_generalt = new CheckBox("Generelt");
-        GridPane.setConstraints(checkBox_born_vold_generalt,1,1);
+        CheckBox checkBox_born_vold_generelt = new CheckBox("Generelt");
+        GridPane.setConstraints(checkBox_born_vold_generelt,1,1);
 
         CheckBox checkBox_born_vold_VI = new CheckBox("Voksen indskriver");
         GridPane.setConstraints(checkBox_born_vold_VI,1,2);
@@ -157,8 +157,8 @@ public class FrontPage
         GridPane.setConstraints(label_maend,2,0);
         label_maend.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
 
-        CheckBox checkBox_maend_generalt = new CheckBox("Generelt");
-        GridPane.setConstraints(checkBox_maend_generalt,2,1);
+        CheckBox checkBox_maend_generelt = new CheckBox("Generelt");
+        GridPane.setConstraints(checkBox_maend_generelt,2,1);
 
         CheckBox checkBox_maend_Hjælp_til_udøvere = new CheckBox("Hjælp til udøvere af vold");
         GridPane.setConstraints(checkBox_maend_Hjælp_til_udøvere,2,2);
@@ -170,8 +170,8 @@ public class FrontPage
         GridPane.setConstraints(label_etniske_kvinder,4,8);
         label_etniske_kvinder.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
 
-        CheckBox checkBox_etniske_kvinder_generalt = new CheckBox("Generelt");
-        GridPane.setConstraints(checkBox_etniske_kvinder_generalt,4,9);
+        CheckBox checkBox_etniske_kvinder_generelt = new CheckBox("Generelt");
+        GridPane.setConstraints(checkBox_etniske_kvinder_generelt,4,9);
 
         Label label_netvaerk = new Label("Netværk");
         GridPane.setConstraints(label_netvaerk,2,8);
@@ -187,8 +187,8 @@ public class FrontPage
         GridPane.setConstraints(label_unge,0,8);
         label_unge.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
 
-        CheckBox checkBox_unge_generalt = new CheckBox("Generelt");
-        GridPane.setConstraints(checkBox_unge_generalt,0,9);
+        CheckBox checkBox_unge_generelt = new CheckBox("Generelt");
+        GridPane.setConstraints(checkBox_unge_generelt,0,9);
 
         Label label_pro_hjaelp = new Label("Professionel hjælp");
         GridPane.setConstraints(label_pro_hjaelp,4,0);
@@ -226,13 +226,13 @@ public class FrontPage
 
 
             //sender status for alle checkboxer til (option_choosesend)
-            String message = logic.option_choosedsend(checkBox_vold_generalt, checkBox_vold_sex, checkBox_vold_psygisk,
-                    checkBox_vold_fysisk, checkBox_vold_materiel, checkBox_vold_okonomisk, checkBox_unge_generalt,
-                    checkBox_born_vold_generalt, checkBox_born_vold_VI, checkBox_born_vold_BI, checkBox_venner_skriver,
-                    checkBox_maend_generalt, checkBox_maend_Hjælp_til_udøvere, checkBox_maend_Hjælp_til_ofre,
+            String message = logic.option_choosedsend(checkBox_vold_generelt, checkBox_vold_sex, checkBox_vold_psygisk,
+                    checkBox_vold_fysisk, checkBox_vold_materiel, checkBox_vold_okonomisk, checkBox_unge_generelt,
+                    checkBox_born_vold_generelt, checkBox_born_vold_VI, checkBox_born_vold_BI, checkBox_venner_skriver,
+                    checkBox_maend_generelt, checkBox_maend_Hjælp_til_udøvere, checkBox_maend_Hjælp_til_ofre,
                     checkBox_netvaerk_generelt, checkBox_skilsmisse_gen, checkBox_misbrugere_og_psykiske_syge, checkBox_pro_laege,
                     checkBox_pro_psykolog, checkBox_pro_politi, checkBox_pro_retshjaelp, checkBox_pro_sygehus,
-                    checkBox_pro_oekonomi, checkBox_etniske_kvinder_generalt);
+                    checkBox_pro_oekonomi, checkBox_etniske_kvinder_generelt);
 
             Show.vis(message);
         });
@@ -257,14 +257,14 @@ public class FrontPage
 
         layout.getChildren().addAll(
                 label_all_vold,
-                checkBox_vold_generalt, checkBox_vold_sex, checkBox_vold_psygisk,checkBox_vold_fysisk,
+                checkBox_vold_generelt, checkBox_vold_sex, checkBox_vold_psygisk,checkBox_vold_fysisk,
                 checkBox_vold_materiel,checkBox_vold_okonomisk,
 
                 label_born_vold,
-                checkBox_born_vold_generalt, checkBox_born_vold_VI, checkBox_born_vold_BI,
+                checkBox_born_vold_generelt, checkBox_born_vold_VI, checkBox_born_vold_BI,
 
                 label_maend,
-                checkBox_maend_generalt, checkBox_maend_Hjælp_til_udøvere, checkBox_maend_Hjælp_til_ofre,
+                checkBox_maend_generelt, checkBox_maend_Hjælp_til_udøvere, checkBox_maend_Hjælp_til_ofre,
 
                 label_skilsmisse,
                 checkBox_skilsmisse_gen,
@@ -274,7 +274,7 @@ public class FrontPage
                 checkBox_pro_sygehus, checkBox_pro_oekonomi,
 
                 label_unge,
-                checkBox_unge_generalt,
+                checkBox_unge_generelt,
 
                 label_venner_skriver,
                 checkBox_venner_skriver,
@@ -286,13 +286,13 @@ public class FrontPage
                 checkBox_misbrugere_og_psykiske_syge,
 
                 label_etniske_kvinder,
-                checkBox_etniske_kvinder_generalt,
+                checkBox_etniske_kvinder_generelt,
 
                 label_tom
         );
 
         topstuff.getChildren().addAll(button_netraadgivning_og_metode, button_besvarelse, button_krisevurdering,
-                button_generalt, button_henvisningsliste);
+                button_generelt, button_henvisningsliste);
 
         buttomright.getChildren().addAll(button_search);
 
