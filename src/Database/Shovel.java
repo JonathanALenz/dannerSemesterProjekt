@@ -6,6 +6,14 @@ import java.util.List;
 
 public class Shovel
 {
+    /*  Shovel er laget tættest på vores DB.
+     *  Bruger JDBC driver til at forbinde med vores mysql database,
+     *  hvor alt data er gemt.
+     *  Vi gemmer wrapper al tekst i en SingleCellText objekter,
+     *  der samtidig holder en type ID og en kategori ID.
+     *  Når vi laver et opslag på en bruger, bliver de gemt i en User klasse,
+     *  for at vi kan tilgå brugerens rettigheder, navn og ID med et enkelt opslag til DB.
+     */
 
     static final String jdbcDriver = "com.mysql.jdbc.Driver";
     static final String dbURL = "jdbc:mysql://sql11.freemysqlhosting.net:3306";
@@ -90,88 +98,6 @@ public class Shovel
 
         return singleCellTexts;
 
-    }
-
-    public List<SingleCellText> dbLinkShovel()
-    {
-        List<SingleCellText> linkRefs = new ArrayList<>();
-
-
-
-        return linkRefs;
-    }
-
-    public List<SingleCellText> dbExampleAnsShovel()
-    {
-        List<SingleCellText> exampleAns = new ArrayList<>();
-
-        try
-        {
-            Class.forName(jdbcDriver);
-            Connection conn = DriverManager.getConnection(dbURL, user, pass);
-
-            String sqlQuery = "SELECT * FROM sql11172288.example_ans";
-
-            PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
-
-            ResultSet rs = pstmt.executeQuery();
-
-            while(rs.next())
-            {
-                exampleAns.add(new SingleCellText(rs.getInt("type_id"), rs.getInt("cat_id"), rs.getString("ans_text")));
-            }
-
-            rs.close();
-            pstmt.close();
-            conn.close();
-        }
-        catch (ClassNotFoundException e)
-        {
-            System.out.println("Couldn't load driver");
-        }
-        catch (SQLException e)
-        {
-            System.out.println("Couldn't connect to db");
-            e.printStackTrace();
-        }
-
-        return exampleAns;
-    }
-
-    public List<SingleCellText> dbGTextShovel()
-    {
-        List<SingleCellText> gTexts = new ArrayList<>();
-
-        try
-        {
-            Class.forName(jdbcDriver);
-            Connection conn = DriverManager.getConnection(dbURL, user, pass);
-
-            String sqlQuery = "SELECT * FROM sql11172288.text_description";
-
-            PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
-
-            ResultSet rs = pstmt.executeQuery();
-
-            while(rs.next())
-            {
-                gTexts.add(new SingleCellText(rs.getInt("type_id"), rs.getInt("id"), rs.getString("actual_text")));
-            }
-
-            rs.close();
-            pstmt.close();
-            conn.close();
-        }
-        catch (ClassNotFoundException e)
-        {
-            System.out.println("Could't load driver.");
-        }
-        catch (SQLException e)
-        {
-            System.out.println("SQL Fejl");
-            e.printStackTrace();
-        }
-        return gTexts;
     }
 
     public User getUser(String userName, int userPass)

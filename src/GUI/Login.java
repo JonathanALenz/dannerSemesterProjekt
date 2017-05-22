@@ -68,8 +68,7 @@ public class Login
             }
             else
             {
-                ErrorMessage errorMessage = new ErrorMessage();
-                errorMessage.wrongCredentials("Forkert login. Prøv igen.");
+                ErrorMessage errorMessage = new ErrorMessage("Forkert login. Prøv igen.", "Fejl");
             }
         });
 

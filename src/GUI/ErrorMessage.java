@@ -14,12 +14,20 @@ import javafx.stage.Stage;
 public class ErrorMessage
 {
 
-    public void wrongCredentials(String message)
+    private String message = "";
+    private String title = "";
+
+    public ErrorMessage(String message, String title)
+    {
+        wrongCredentials(message, title);
+    }
+
+    public void wrongCredentials(String message, String title)
     {
 
         Stage window = new Stage();
         GridPane layout = new GridPane();
-        window.setTitle("Error");
+        window.setTitle(title);
 
 
         layout.setPadding(new Insets(2,10,10,10));
@@ -37,9 +45,8 @@ public class ErrorMessage
 
         layout.getChildren().addAll(label_error_msg, button_return);
 
-        Scene scene = new Scene(layout);
+        Scene scene = new Scene(layout, 210, 80);
         window.setScene(scene);
         window.showAndWait();
-
     }
 }

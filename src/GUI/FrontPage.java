@@ -15,6 +15,10 @@ import Logic.*;
 
 public class FrontPage
 {
+
+    /*  Den primære GUI klasse, der indeholder alt fra vores forside.
+     *
+     */
     Logic logic;
 
     public FrontPage()
@@ -44,7 +48,7 @@ public class FrontPage
         Button button_netraadgivning_og_metode = new Button("Netrådgivning og metode");
         button_netraadgivning_og_metode.setOnAction(e->
         {
-            Show.vis("Generelt\n" + logic.genLogic(0,0) + "\n\n" +
+            Show.vis("Generelt\n" + logic.genLogic(0,0) +
                     "Gode formuleringer:\n" + logic.specLogic(5,0) + "\n\n" +
                     "Vores rolle er:\n" + logic.specLogic(6,0) +"\n\n" +
                     "Undgå at:\n" + logic.specLogic(4,0) + "\n\n");
@@ -53,10 +57,10 @@ public class FrontPage
         Button button_besvarelse = new Button ("Besvarelse");
         button_besvarelse.setOnAction(e->
         {
-            Show.vis("Generelt\n" + logic.genLogic(0,1) + "\n\n" +
+            Show.vis("Generelt\n" + logic.genLogic(0,1) +
                     "Indledning - Sådan indleder du en besvarelse:\n" +
                     "Eksempler på tekster\n" + logic.specLogic(13,1) + "\n\n" +
-                    "Midte - Sådan rådgiver du:\n" + logic.genLogic(17,1) + "\n\n" +
+                    "Midte - Sådan rådgiver du:\n" + logic.genLogic(17,1) +
                     "Afslutning - Sådan afslutter du en besvarelse\n\nAfslutningsvis åbner vi for " +
                     "at indskriver altid er velkommen til at tage kontakt igen.\n" + logic.specLogic(14,1));
         });
@@ -64,17 +68,24 @@ public class FrontPage
         Button button_krisevurdering = new Button("Krisevurdering");
         button_krisevurdering.setOnAction(e->
         {
-            Show.vis("Generelt\n" + logic.genLogic(0,2) + "\n\n" +
+            Show.vis("Generelt\n" + logic.genLogic(0,2) +
                     "Eksempler på tekster:\n" + logic.specLogic(1,2) + "\n\n" +
                     "Henvisninger:\n" + logic.specLogic(2,2));
         });
 
         Button button_generalt = new Button ("Generelt");
+        button_generalt.setOnAction(e ->
+        {
+            Show.vis("Generelt\n" + logic.genLogic(0,0) +
+                     "Gode formuleringer\n\n" + logic.specLogic(5,0) +
+                     "Vores rolle er:\n\n" + logic.specLogic(6,0) +
+                     "Undgå at:\n\n" + logic.specLogic(4,0));
+        });
 
         Button button_henvisningsliste = new Button ("Henvisningsliste");
         button_henvisningsliste.setOnAction(e->
         {
-            Show.vis(logic.getHenvisninger(2));
+            Show.vis(logic.specLogic(2));
 
         });
 
@@ -211,8 +222,10 @@ public class FrontPage
         button_search.setPrefSize(70,40);
         button_search.setOnAction(e->
         {
+
+
             //sender status for alle checkboxer til (option_choosesend)
-            String message = option_choosedsend(checkBox_vold_generalt, checkBox_vold_sex, checkBox_vold_psygisk,
+            String message = logic.option_choosedsend(checkBox_vold_generalt, checkBox_vold_sex, checkBox_vold_psygisk,
                     checkBox_vold_fysisk, checkBox_vold_materiel, checkBox_vold_okonomisk, checkBox_unge_generalt,
                     checkBox_born_vold_generalt, checkBox_born_vold_VI, checkBox_born_vold_BI, checkBox_venner_skriver,
                     checkBox_maend_generalt, checkBox_maend_Hjælp_til_udøvere, checkBox_maend_Hjælp_til_ofre,
@@ -277,9 +290,6 @@ public class FrontPage
                 label_tom
         );
 
-
-
-
         topstuff.getChildren().addAll(button_netraadgivning_og_metode, button_besvarelse, button_krisevurdering,
                 button_generalt, button_henvisningsliste);
 
@@ -298,146 +308,5 @@ public class FrontPage
 
         window.setScene(scene);
         window.show();
-    }
-
-    public String option_choosedsend (CheckBox v_generalt, CheckBox v_sex, CheckBox v_psygisk, CheckBox v_fysisk,
-                                      CheckBox v_materiel, CheckBox v_oekonomi, CheckBox unge, CheckBox BogV_gen,
-                                      CheckBox BogV_VI, CheckBox BogV_BI, CheckBox venner_skriver, CheckBox man_gen,
-                                      CheckBox mand_udoever, CheckBox mand_ofre, CheckBox netvaerk,
-                                      CheckBox Skilsmisser_gen, CheckBox misbrug, CheckBox p_laege, CheckBox p_psykolog,
-                                      CheckBox p_polti, CheckBox p_retshjaelp, CheckBox p_sygehus, CheckBox p_oekonomi,
-                                      CheckBox etniske)
-    {
-        String stringvGeneralt = "";
-        String stringvSex = "";
-        String stringvPsygisk = "";
-        String stringvFysisk = "";
-        String stringvMateriel = "";
-        String stringvOekonomi = "";
-        String stringUnge = "";
-        String stringBogVgen = "";
-        String stringBogVVI = "";
-        String stringBogVBI = "";
-        String stringVennerSkriver = "";
-        String stringMandGen = "";
-        String stringMandUdoever = "";
-        String stringMandOfre = "";
-        String stringNetvaerk = "";
-        String stringSkilsmisser = "";
-        String stringMisbrug = "";
-        String stringLaege = "";
-        String stringPsykolog = "";
-        String stringPoliti = "";
-        String stringRetshjaelp = "";
-        String stringSygehus = "";
-        String stringoekonomi = "";
-        String stringEtniske = "";
-
-        if (v_generalt.isSelected())
-        {
-            stringvGeneralt = "VOLD\n\n" + logic.genLogic(0, 8) + "\n\n" +
-                              "VOLDENS 5 FORMER(ofte er alle 5 former tilstede):\n\n" + logic.specLogic(7, 8);
-        }
-        if (v_sex.isSelected())
-        {
-            stringvSex = "SEKSUEL VOLD\n\nGENERELT:\n\n" + logic.genLogic(0,11) + "\n\n" +
-                         "EKSEMPLER PÅ SVAR:\n\n" + logic.specLogic(1, 11)  +
-                         "HENVISNGER:\n\n" + logic.specLogic(2, 11);
-        }
-
-        if (v_psygisk.isSelected())
-        {
-            stringvPsygisk = "PSYGISK VOLD\n\nGENERELT:\n\n" + logic.genLogic(0,10) + "\n\n" +
-                             "EKSEMPLER PÅ SVAR:\n\n" + logic.specLogic(1,10);
-        }
-        if (v_fysisk.isSelected())
-        {
-            stringvFysisk = "FYSISK VOLD\n\nGENERELT:\n\n" + logic.genLogic(0,9) + "\n\n";
-        }
-        if (v_materiel.isSelected())
-
-        {
-            stringvMateriel = "MATERIEL VOLD\n\nGENERELT:\n\n" + logic.genLogic(0,12) + "\n\n";
-        }
-        if (v_oekonomi.isSelected())
-        {
-            stringvOekonomi = "ØKONOMISK VOLD\n\nGENERELT:\n\n" + logic.genLogic(0, 13)+ "\n\n" +
-                              "EKSEMPLER PÅ SVAR:\n\n" + logic.specLogic(1,13);
-        }
-        if (unge.isSelected())
-        {
-            stringUnge = "UNGE\n\nGENERELT:\n\n" + logic.genLogic(0,6) + "\n\n" +
-                         "EKSEMPLER PÅ SVAR:\n\n" + logic.specLogic(1,6) +
-                         "HENVISNINGER:\n\n" + logic.specLogic(2,6);
-        }
-        if (BogV_gen.isSelected())
-        {
-            stringBogVgen = "BØRN OG VOLD\n\nGENERELT:\n\n" + logic.genLogic(0,14) + "\n\n";
-        }
-        if (BogV_VI.isSelected())
-        {
-            stringBogVVI = "NÅR INDSKRIVER ER VOKSEN:\n\n" + logic.genLogic(0,15) + "\n\n" +
-                    "EKSEMPLER PÅ SVAR:\n\n" + logic.specLogic(1,15);
-        }
-        if (BogV_BI.isSelected())
-        {
-            stringBogVBI = "NÅR INDSKRIVER ER BARN:\n\n" + logic.genLogic(0,16) + "\n\n" +
-                    "EKSEMPLER PÅ SVAR:\n\n" + logic.specLogic(1,16) +
-                    "HENVISNINGER\n\n" + logic.specLogic(2,16);
-        }
-        if (venner_skriver.isSelected())
-        {
-            stringVennerSkriver = "NÅR VEN ELLER FAMILIE SKRIVER IND:\n\nGENERELT:\n\n" +
-                                   logic.genLogic(0,5) + "\n\n" +
-                                  "EKSEMPLER PÅ SVAR:\n\n" + logic.specLogic(1,5);
-        }
-        if (man_gen.isSelected())
-        {
-            stringMandGen = "MÆND\n\nGENERELT:\n\n" + logic.genLogic(0,7) + "\n\n";
-        }
-        if (mand_udoever.isSelected())
-        {
-            stringMandUdoever = "HJÆLP TIL UDØVERE AF VOLD\n\nEKSEMPLER PÅ TEKSTER\n\n" + logic.specLogic(18,7);
-        }
-        if (mand_ofre.isSelected())
-        {
-            stringMandOfre = "HJÆLP TIL MÆND UDSAT FOR VOLD\n\n" +
-                             "HENVISNINGER(OVERNATNINGSMULIGHEDER & RÅDGIVNING\n\n" + logic.specLogic(2,7);
-        }
-        if (netvaerk.isSelected())
-        {
-            stringNetvaerk = "NETVÆRK\n\nGENERELT:\n\n" + logic.genLogic(0,19) + "\n\n" +
-                             "EKSEMPLER PÅ SVAR:\n\n" + logic.specLogic(1,19);
-        }
-        if (Skilsmisser_gen.isSelected())
-        {
-            stringSkilsmisser = "SKILSMISSER\n\nGENERELT:\n\n" + logic.genLogic(0,17) + "\n\n" +
-                                "EKSEMPLER PÅ SVAR\n\n" + logic.specLogic(1,17);
-        }
-        if (misbrug.isSelected())
-        {
-            stringMisbrug = "MISBRUGERE OG PSYIGISK SYGE\n\nGENERELT:\n\n" + logic.genLogic(0,4) + "\n\n" +
-                            "EKSEMPLER PÅ SVAR:\n\n" + logic.specLogic(1,4) +
-                            "HENVISNINGER:\n\n" + logic.specLogic(2,4);
-        }
-//        if (p_laege.isSelected()) {stringLaege =  "PRO LÆGE" + "\n\n";}
-//        if (p_psykolog.isSelected()) {stringPsykolog =  "PRO PSYKO" + "\n\n";}
-//        if (p_polti.isSelected()) {stringPoliti = "PANSER" + "\n\n";}
-//        if (p_retshjaelp.isSelected()) {stringRetshjaelp = "PRO RETSHJÆLP" + "\n\n";}
-//        if (p_sygehus.isSelected()) {stringSygehus = "PRO SYGEHUS" + "\n\n";}
-//        if (p_oekonomi.isSelected()) {stringoekonomi = "PRO ØKONOMI" + "\n\n";}
-        if (etniske.isSelected())
-        {
-            stringEtniske = "ETNISKE KVINDER\n\nGENERELT:\n\n" + logic.genLogic(0,18) + "\n\n" +
-                            "EKSEMPLER PÅ SVAR:\n\n" + logic.specLogic(1,18) +
-                            "HENVISNINGER:\n\n" + logic.specLogic(2,18);
-        }
-
-        String msg = (stringvGeneralt + stringvSex + stringvPsygisk + stringvFysisk + stringvMateriel + stringvOekonomi +
-                stringUnge + stringBogVgen + stringBogVVI + stringBogVBI + stringVennerSkriver + stringMandGen + stringMandUdoever +
-                stringMandOfre + stringNetvaerk + stringSkilsmisser + stringMisbrug + stringLaege + stringPsykolog + stringPoliti +
-                stringRetshjaelp + stringSygehus + stringoekonomi + stringEtniske);
-
-        return msg;
     }
 }

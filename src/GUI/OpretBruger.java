@@ -29,8 +29,6 @@ public class OpretBruger
         layout.setHgap(6);
         window.initModality(Modality.APPLICATION_MODAL);
 
-        ErrorMessage errorMessage = new ErrorMessage();
-
         Label label_brugernavn = new Label("Brugernavn: ");
         GridPane.setConstraints(label_brugernavn,0,0);
 
@@ -66,14 +64,13 @@ public class OpretBruger
                 Logic logic = new Logic();
                 logic.createNewUser(textField_brugernavn.getText(), passwordField_gentag_password.getText(),
                                     choiceBox.getValue());
-                ErrorMessage errorMessage1 = new ErrorMessage();
-                errorMessage1.wrongCredentials(textField_brugernavn.getText() + " er nu oprettet som " +
-                                               choiceBox.getValue());
+                ErrorMessage errorMessage1 = new ErrorMessage(textField_brugernavn.getText() + " er nu oprettet som " +
+                                                              choiceBox.getValue(), "Ny bruger");
                 window.close();
             }
             else
             {
-                errorMessage.wrongCredentials("Password stemmer ikke overens.");
+                ErrorMessage errorMessage = new ErrorMessage("Passwords er ikke ens", "Fejl");
             }
         });
 

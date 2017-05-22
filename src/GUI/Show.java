@@ -15,8 +15,8 @@ public class Show {
         GridPane layout = new GridPane();
         window.setTitle("Tekster");
 
-        window.setMinWidth(1000);
-        window.setMinHeight(650);
+        window.setMinWidth(700);
+        window.setMinHeight(450);
         layout.setPadding(new Insets(2,10,10,10));
         layout.setVgap(8);
         layout.setHgap(6);
@@ -24,37 +24,18 @@ public class Show {
 
         TextArea main_body = new TextArea(message);
 
+        main_body.setStyle("-fx-font-size: 12px;" +
+                           "-fx-background-color: gray;" +
+                           "-fx-font-family: fantasy");
 
-        //kopi start
-        // header_body.setStyle(""
-        //       + "-fx-font-size: 30px;"
-        //     + "-fx-font-style: italic;"
-        //   + "-fx-font-weight: bold;"
-        // + "-fx-font-family: fantasy;"
-        // + "-fx-text-fill: blue;"
-        // + "-fx-background-color: aqua");
-
-        main_body.setStyle(""
-                + "-fx-font-size: 12px;"
-//                + "-fx-font-style: italic;"
-                //  + "-fx-font-weight: bold;"
-                + "-fx-font-family: fantasy;");
-        //kopi end
-
-        main_body.setPrefSize(1000,600);
+        main_body.setPrefSize(600,400);
         GridPane.setConstraints(main_body,0,1);
         main_body.setWrapText(true);
-
-        //Label label_main = new Label(message );
-        //GridPane.setConstraints(label_main,0,1);
-
 
 
         Button button_return = new Button("Return");
         GridPane.setConstraints(button_return,1,2);
         button_return.setOnAction(e->window.close());
-
-
 
         layout.getChildren().addAll(main_body, button_return);
 
