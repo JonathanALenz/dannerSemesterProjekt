@@ -16,7 +16,7 @@ import Logic.*;
 public class OpretBruger
 {
 
-    public void createUser()
+    public void createUser(Logic logic)
     {
 
         Stage window = new Stage();
@@ -58,20 +58,19 @@ public class OpretBruger
         Button button_opret = new Button("Opret");
         layout.setConstraints(button_opret,1,4);
         layout.setHalignment(button_opret, HPos.RIGHT);
+
+        String passWordTekst = passwordField_password.getText();
+        String passWordTekstRep = passwordField_gentag_password.getText();
+        String brugerNavn = textField_brugernavn.getText();
         button_opret.setOnAction(e->
         {
-            if (passwordField_password.getText().equals(passwordField_gentag_password.getText()))
+            if (passWordTekst.equals(passWordTekstRep))
             {
-                Logic logic = new Logic();
-                logic.createNewUser(textField_brugernavn.getText(), passwordField_gentag_password.getText(),
-                                    choiceBox.getValue());
-                ErrorMessage errorMessage1 = new ErrorMessage(textField_brugernavn.getText() + " er nu oprettet som " +
-                                                              choiceBox.getValue(), "Ny bruger");
+                logic.createNewUser(brugerNavn, passWordTekstRep,
+                        choiceBox.getValue());
+                ErrorMessage errorMessage1 = new ErrorMessage(brugerNavn + " " +
+                        "er nu oprettet som " + choiceBox.getValue(), "Ny bruger");
                 window.close();
-            }
-            else
-            {
-                ErrorMessage errorMessage = new ErrorMessage("Passwords er ikke ens", "Fejl");
             }
         });
 

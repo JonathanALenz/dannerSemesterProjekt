@@ -7,7 +7,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -19,10 +18,7 @@ import Logic.*;
 public class FrontPage
 {
 
-    /*  Den primære GUI klasse, der indeholder alt fra vores forside.
-     *
-     **
-     */
+    //Den primære GUI klasse, der indeholder alt fra vores forside.
     private Logic logic;
     private Show show;
 
@@ -268,7 +264,7 @@ public class FrontPage
 
         button_opret.setOnAction(e-> {
 
-            opretBruger.createUser();
+            opretBruger.createUser(logic);
         });
 
         //rediger knappen chekker userlevel, hvis userlevel ikke er 1, så kan man ikke redigere.
