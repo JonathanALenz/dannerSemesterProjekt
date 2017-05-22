@@ -205,12 +205,37 @@ public class Logic
                     "EKSEMPLER PÅ SVAR:\n\n" + specLogic(1,4) +
                     "HENVISNINGER:\n\n" + specLogic(2,4) + printDash(118);
         }
-//        if (p_laege.isSelected()) {stringLaege =  "PRO LÆGE" + "\n\n";}
-//        if (p_psykolog.isSelected()) {stringPsykolog =  "PRO PSYKO" + "\n\n";}
-//        if (p_polti.isSelected()) {stringPoliti = "PANSER" + "\n\n";}
-//        if (p_retshjaelp.isSelected()) {stringRetshjaelp = "PRO RETSHJÆLP" + "\n\n";}
-//        if (p_sygehus.isSelected()) {stringSygehus = "PRO SYGEHUS" + "\n\n";}
-//        if (p_oekonomi.isSelected()) {stringoekonomi = "PRO ØKONOMI" + "\n\n";}
+        if (p_laege.isSelected())
+        {
+            msg +=  "Professionel hjælp: Læge\n\n" + genLogic(0,20) +
+                    "Eksempler på svar:\n\n" + specLogic(1,20) + printDash(118);
+        }
+        if (p_psykolog.isSelected())
+        {
+            msg += "Professionel hjælp: Psykolog\n\n" + genLogic(0,21) +
+                    "Eksempler på svar:\n\n" + specLogic(1,21) +
+                    "Henvisninger:\n\n" + specLogic(2, 21) + printDash(118);
+        }
+        if (p_polti.isSelected())
+        {
+            msg += "Professionel hjælp: Politi\n\n" + genLogic(0,22) +
+                    "Eksempler på svar:\n\n" + specLogic(1,22) + printDash(118);
+
+        }
+        if (p_retshjaelp.isSelected())
+        {
+            msg += "Professionel hjælp: Retshjælp\n\n" + genLogic(0,23) +
+                    "Eksempler på svar:\n\n" + specLogic(1,23) + printDash(118);
+        }
+        if (p_sygehus.isSelected())
+        {
+            msg += "Professionel hjælp: Sygehus\n\n" + genLogic(0,24) + printDash(118);
+        }
+        if (p_oekonomi.isSelected())
+        {
+            msg += "Professionel hjælp: Økonomi\n\n" + genLogic(0,25) +
+                    "Eksempler på svar:\n\n" + specLogic(1,25) + printDash(118);
+        }
         if (etniske.isSelected())
         {
             msg += "ETNISKE KVINDER\n\nGENERELT:\n\n" + genLogic(0,18) +
