@@ -30,34 +30,34 @@ public class OpretBruger
         window.initModality(Modality.APPLICATION_MODAL);
 
         Label label_brugernavn = new Label("Brugernavn: ");
-        GridPane.setConstraints(label_brugernavn,0,0);
+        layout.setConstraints(label_brugernavn,0,0);
 
         TextField textField_brugernavn = new TextField();
-        GridPane.setConstraints(textField_brugernavn,1,0);
+        layout.setConstraints(textField_brugernavn,1,0);
 
         Label label_password = new Label("Password: ");
-        GridPane.setConstraints(label_password,0,1);
+        layout.setConstraints(label_password,0,1);
 
         PasswordField passwordField_password = new PasswordField();
-        GridPane.setConstraints(passwordField_password, 1,1);
+        layout.setConstraints(passwordField_password, 1,1);
 
         Label label_gentag_password = new Label("Gentag password: ");
-        GridPane.setConstraints(label_gentag_password,0,2);
+        layout.setConstraints(label_gentag_password,0,2);
 
         PasswordField passwordField_gentag_password = new PasswordField();
-        GridPane.setConstraints(passwordField_gentag_password, 1,2);
+        layout.setConstraints(passwordField_gentag_password, 1,2);
 
         Label label_level = new Label("Rolle: ");
-        GridPane.setConstraints(label_level,0,3);
+        layout.setConstraints(label_level,0,3);
 
         ChoiceBox<String> choiceBox = new ChoiceBox();
         choiceBox.getItems().addAll("Admin", "Bruger");
         choiceBox.getSelectionModel().select("Bruger");
-        GridPane.setConstraints(choiceBox, 1,3);
+        layout.setConstraints(choiceBox, 1,3);
 
         Button button_opret = new Button("Opret");
-        GridPane.setConstraints(button_opret,1,4);
-        GridPane.setHalignment(button_opret, HPos.RIGHT);
+        layout.setConstraints(button_opret,1,4);
+        layout.setHalignment(button_opret, HPos.RIGHT);
         button_opret.setOnAction(e->
         {
             if (passwordField_password.getText().equals(passwordField_gentag_password.getText()))
@@ -77,7 +77,7 @@ public class OpretBruger
 
 
         Button button_return = new Button("Return");
-        GridPane.setConstraints(button_return,0,4);
+        layout.setConstraints(button_return,0,4);
         button_return.setOnAction(e->window.close());
 
 
