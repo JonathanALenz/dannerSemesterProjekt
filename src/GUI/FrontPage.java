@@ -26,21 +26,30 @@ public class FrontPage
         show = new Show();
     }
 
+    //åbner programmet og tar parameteren "user_level" som bliver brugt under oprettelsen af hovedvinduet (hvis man er
+    // admin kan man se 2 knapper mere her)
     public void mainProgram(int user_level)
     {
         Stage window = new Stage();
-        GridPane gridpane_middle = new GridPane();
+
+        //Bruger borderpane til at dele vinduet op, topstuff og buttomstuff er placeret i borderpanes top og buttom
         BorderPane borderPane = new BorderPane();
         BorderPane topstuff = new BorderPane();
         BorderPane buttomstuff = new BorderPane();
 
+        //bruger gridpane_middle til alle checkboxe og labels der står over checkboxe og er placeret i borderpanes center
+        GridPane gridpane_middle = new GridPane();
 
+        //Alle de HBox'e og VBox'e indeholder vores knapper, søgefelt og de to labels øverst til venstre
+        //De er plaveret i BorderPanesne: "topstuff" og "buttomstuff".
         VBox midright = new VBox();
         HBox buttomright = new HBox();
         HBox buttomleft = new HBox();
         VBox topleft = new VBox();
         HBox topright = new HBox();
 
+        //sørger for at ingen elemeter er indenfor 10 pixels af vinduets rammer (med undtagelse labelsne i top left som
+        //er 2 pixels from toppen). Desuden sørger (.setSpacing) for at alle elementer ikke er klumpet sammen.
         buttomright.setPadding(new Insets(10,10,10,10));
         buttomright.setSpacing(8);
         buttomleft.setPadding(new Insets(10,10,10,10));
@@ -52,12 +61,11 @@ public class FrontPage
 
         gridpane_middle.setPadding(new Insets(10,10,10,10));
 
+        //laver vertikalt og horisontalt gap for checkboxe og labels i Gridpane.
         gridpane_middle.setHgap(29);
         gridpane_middle.setVgap(8);
 
-        //Knapper i top layer
-        //Button button_home = new Button ("home");
-
+        //Knapper til højre i vinduet
         Label label_overskrift = new Label("Manual for Danners Netrådgivning");
         label_overskrift.setFont(Font.font("",22));
 
@@ -118,6 +126,11 @@ public class FrontPage
 
         });
 
+        //laver et tomp felt under henvisningsliste knappen på 50 pixel
+        Region region = new Region();
+        region.setPrefHeight(50);
+
+        //Søgefelt samt søgeknap oprettes
         TextField textFieldsoeg = new TextField();
         textFieldsoeg.setPromptText("Indtast søgeord...");
 
@@ -142,14 +155,6 @@ public class FrontPage
         gridpane_middle.setConstraints(label_all_vold,0,0);
         label_all_vold.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
 
-
-        label_all_vold.setOnMouseClicked(e->
-        {
-
-//            String message = logic.specLinks(3);
-
-//            Show.vis(message);
-        });
 
         CheckBox checkBox_vold_generelt = new CheckBox("Generelt");
         gridpane_middle.setConstraints(checkBox_vold_generelt,0,1);
@@ -188,7 +193,6 @@ public class FrontPage
 
         CheckBox checkBox_skilsmisse_gen = new CheckBox("Generelt");
         gridpane_middle.setConstraints(checkBox_skilsmisse_gen,3,1);
-
 
         Label label_misbrugere_og_psykiske_syge = new Label("Misbrugere & psykiske syge");
         gridpane_middle.setConstraints(label_misbrugere_og_psykiske_syge,3,8);
@@ -267,8 +271,6 @@ public class FrontPage
         button_search.setPrefSize(70,40);
         button_search.setOnAction(e->
         {
-
-
             //sender status for alle checkboxer til (option_choosesend)
             String message = logic.optionChosenSend(checkBox_vold_generelt, checkBox_vold_sex, checkBox_vold_psygisk,
                     checkBox_vold_fysisk, checkBox_vold_materiel, checkBox_vold_okonomisk, checkBox_unge_generelt,
@@ -277,7 +279,6 @@ public class FrontPage
                     checkBox_netvaerk_generelt, checkBox_skilsmisse_gen, checkBox_misbrugere_og_psykiske_syge, checkBox_pro_laege,
                     checkBox_pro_psykolog, checkBox_pro_politi, checkBox_pro_retshjaelp, checkBox_pro_sygehus,
                     checkBox_pro_oekonomi, checkBox_etniske_kvinder_generelt);
-
             show.vis(message);
         });
 
@@ -290,16 +291,17 @@ public class FrontPage
             opretBruger.createUser(logic);
         });
 
-        //rediger knappen chekker userlevel, hvis userlevel ikke er 1, så kan man ikke redigere.
+
         Button button_rediger = new Button("Rediger");
         button_rediger.setPrefSize(70,40);
-        //hvis user_level (hentet fra Login) er 1 så bliver man vidresendt til redigerings vinduet
+
         button_rediger.setOnAction(e->
         {
 //            AdminRediger.rediger();
 
         });
 
+        //afmarkére alle checkboxe
         Button button_all_off = new Button("Afmarkér");
         button_all_off.setPrefWidth(154);
         button_all_off.setOnAction(e->{
@@ -331,6 +333,7 @@ public class FrontPage
 
         });
 
+        //lukker program
         Button button_luk = new Button("Luk");
         button_luk.setPrefSize(70,40);
         button_luk.setOnAction(e->
@@ -338,7 +341,7 @@ public class FrontPage
             window.close();
         });
 
-
+        //placere alle labels/checkboxe/knapper/textfields i de respektive HBoxe, VBoxe og Gridpane
         gridpane_middle.getChildren().addAll(
                 label_all_vold,
                 checkBox_vold_generelt, checkBox_vold_sex, checkBox_vold_psygisk,checkBox_vold_fysisk,
@@ -379,19 +382,21 @@ public class FrontPage
 
         topright.getChildren().addAll(textFieldsoeg, button_soeg);
 
-        Region region = new Region();
-        region.setPrefHeight(50);
-
         midright.getChildren().addAll(button_netraadgivning_og_metode, button_besvarelse, button_krisevurdering,
                 button_generelt, button_henvisningsliste, region, button_all_off);
 
+        //lige meget hvilket user_level brugeren har, vil button_search blive oprettet
         buttomleft.getChildren().addAll(button_search);
+
+        //når vinduet åbnes checkes der om user_level er 1, hvis det er 1, så betyder det at man er admin. Derfor vil
+        //button_rediger og button_opret også blive generet til højre for button_search.
         if (user_level == 1)
         {
             buttomleft.getChildren().addAll(button_rediger, button_opret);
         }
         buttomright.getChildren().addAll(button_luk);
 
+        //de forskellige HBoxe, VBoxe, GridPane, BorderPane bliver sat sammen her
         buttomstuff.setLeft(buttomleft);
         buttomstuff.setRight(buttomright);
 

@@ -16,14 +16,19 @@ public class Login
     public void first_login (Stage primaryStage)
     {
         Logic logic = new Logic();
-
+        //Bruger gridpane som layout for at alle felter står ved siden af og under hinanden.
         GridPane layout_login = new GridPane();
 
+        //sørger for at alle elementer i vinduet bliver sat 10 pixels fra top/bund/venstre/højre.
         layout_login.setPadding(new Insets(10,10,10,10));
 
+        //Sætter 10 pixel mellem hvert label, textfield og knap.
         layout_login.setHgap(8);
         layout_login.setVgap(8);
 
+        FrontPage frontPage = new FrontPage();
+
+        //opretter elementer samt placere dem i forhold til hinanden med (.setConstraints)
         Label label_user = new Label("User");
         layout_login.setConstraints(label_user,0,0);
 
@@ -42,10 +47,9 @@ public class Login
         Button button_login = new Button("Login");
         layout_login.setConstraints(button_login,1,2);
 
-        FrontPage frontPage = new FrontPage();
 
+        //opretter int userlevel som bliver brugt til at se admin status
         int[] user_level = {0};
-
         button_login.setOnAction(e->
         {
             //hver gang der trykkes på button_login, så bliver der checket om det er en admin der logger ind, hvis det er
