@@ -64,7 +64,7 @@ public class FrontPage
         Label label_overskrift = new Label("Manual for Danners Netrådgivning");
         label_overskrift.setFont(Font.font("",22));
 
-        Label label_underoverskrift = new Label("Vælg problematikker for at få vist information.");
+        Label label_underoverskrift = new Label("Vælg problematikker for at få vist information og klik på \"Vis\".");
         label_underoverskrift.setFont(Font.font("",16));
 
         Button button_netraadgivning_og_metode = new Button("Netrådgivning og metode");
@@ -303,7 +303,7 @@ public class FrontPage
 
         });
 
-        Button button_all_off = new Button("Afmarker");
+        Button button_all_off = new Button("Afmarkér");
         button_all_off.setPrefSize(70,40);
         button_all_off.setOnAction(e->{
 
