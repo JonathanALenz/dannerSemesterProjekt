@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
@@ -31,26 +32,40 @@ public class FrontPage
     public void mainProgram(int user_level)
     {
         Stage window = new Stage();
-        GridPane layout = new GridPane();
+        GridPane gridpane_middle = new GridPane();
         BorderPane borderPane = new BorderPane();
         BorderPane topstuff = new BorderPane();
+        BorderPane buttomstuff = new BorderPane();
 
         HBox buttomright = new HBox();
-        HBox topleft = new HBox();
+        HBox buttomleft = new HBox();
+        VBox topleft = new VBox();
         HBox topright = new HBox();
 
         buttomright.setPadding(new Insets(10,10,10,10));
         buttomright.setSpacing(8);
+        buttomleft.setPadding(new Insets(10,10,10,10));
+        buttomleft.setSpacing(8);
+        topright.setPadding(new Insets(10,10,10,10));
+        topleft.setPadding(new Insets(2,10,10,10));
 
-        layout.setPadding(new Insets(10,10,10,10));
+        gridpane_middle.setPadding(new Insets(10,10,10,10));
 
-        layout.setHgap(29);
-        layout.setVgap(8);
+        gridpane_middle.setHgap(29);
+        gridpane_middle.setVgap(8);
 
         //Knapper i top layer
         //Button button_home = new Button ("home");
 
+        Label label_overskrift = new Label("Manual for Danners Netrådgivning");
+        label_overskrift.setFont(Font.font("",22));
+
+        Label label_underoverskrift = new Label("Vælg problematikker for at få vist information.");
+        label_underoverskrift.setFont(Font.font("",16));
+
         Button button_netraadgivning_og_metode = new Button("Netrådgivning og metode");
+        GridPane.setConstraints(button_netraadgivning_og_metode,5,0);
+        button_netraadgivning_og_metode.setPrefWidth(154);
                 button_netraadgivning_og_metode.setOnAction(e->
         {
             show.vis("Generelt\n" + logic.getCellTextFormat(0,0) +
@@ -60,6 +75,8 @@ public class FrontPage
         });
 
         Button button_besvarelse = new Button ("Besvarelse");
+        GridPane.setConstraints(button_besvarelse,5,1);
+        button_besvarelse.setPrefWidth(154);
         button_besvarelse.setOnAction(e->
         {
             show.vis("Generelt\n" + logic.getCellTextFormat(0,1) +
@@ -71,6 +88,8 @@ public class FrontPage
         });
 
         Button button_krisevurdering = new Button("Krisevurdering");
+        GridPane.setConstraints(button_krisevurdering,5,2);
+        button_krisevurdering.setPrefWidth(154);
         button_krisevurdering.setOnAction(e->
         {
             show.vis("Generelt\n" + logic.getCellTextFormat(0,2) +
@@ -79,6 +98,8 @@ public class FrontPage
         });
 
         Button button_generelt = new Button ("Generelt");
+        GridPane.setConstraints(button_generelt,5,3);
+        button_generelt.setPrefWidth(154);
         button_generelt.setOnAction(e ->
         {
             show.vis("Generelt\n" + logic.getCellTextFormat(0,0) +
@@ -88,6 +109,8 @@ public class FrontPage
         });
 
         Button button_henvisningsliste = new Button ("Henvisningsliste");
+        GridPane.setConstraints(button_henvisningsliste,5,4);
+        button_henvisningsliste.setPrefWidth(154);
         button_henvisningsliste.setOnAction(e->
         {
             show.vis(logic.getCellText(2));
@@ -115,7 +138,7 @@ public class FrontPage
         //Checkboxe samt Labels
 
         Label label_all_vold = new Label("Vold");
-        layout.setConstraints(label_all_vold,0,0);
+        gridpane_middle.setConstraints(label_all_vold,0,0);
         label_all_vold.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
 
 
@@ -128,120 +151,119 @@ public class FrontPage
         });
 
         CheckBox checkBox_vold_generelt = new CheckBox("Generelt");
-        layout.setConstraints(checkBox_vold_generelt,0,1);
+        gridpane_middle.setConstraints(checkBox_vold_generelt,0,1);
 
         CheckBox checkBox_vold_sex = new CheckBox("Sex");
-        layout.setConstraints(checkBox_vold_sex,0,2);
+        gridpane_middle.setConstraints(checkBox_vold_sex,0,2);
 
         CheckBox checkBox_vold_psygisk = new CheckBox("Psykisk");
-        layout.setConstraints(checkBox_vold_psygisk,0,3);
+        gridpane_middle.setConstraints(checkBox_vold_psygisk,0,3);
 
         CheckBox checkBox_vold_fysisk = new CheckBox("Fysisk");
-        layout.setConstraints(checkBox_vold_fysisk,0,4);
+        gridpane_middle.setConstraints(checkBox_vold_fysisk,0,4);
 
         CheckBox checkBox_vold_materiel = new CheckBox("Materiel");
-        layout.setConstraints(checkBox_vold_materiel,0,5);
+        gridpane_middle.setConstraints(checkBox_vold_materiel,0,5);
 
         CheckBox checkBox_vold_okonomisk = new CheckBox("Økonomisk");
-        layout.setConstraints(checkBox_vold_okonomisk,0,6);
+        gridpane_middle.setConstraints(checkBox_vold_okonomisk,0,6);
 
         Label label_born_vold = new Label("Børn & vold");
-        layout.setConstraints(label_born_vold,1,0);
+        gridpane_middle.setConstraints(label_born_vold,1,0);
         label_born_vold.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
 
         CheckBox checkBox_born_vold_generelt = new CheckBox("Generelt");
-        layout.setConstraints(checkBox_born_vold_generelt,1,1);
+        gridpane_middle.setConstraints(checkBox_born_vold_generelt,1,1);
 
         CheckBox checkBox_born_vold_VI = new CheckBox("Voksen indskriver");
-        layout.setConstraints(checkBox_born_vold_VI,1,2);
+        gridpane_middle.setConstraints(checkBox_born_vold_VI,1,2);
 
         CheckBox checkBox_born_vold_BI = new CheckBox("Barn indskriver");
-        layout.setConstraints(checkBox_born_vold_BI,1,3);
+        gridpane_middle.setConstraints(checkBox_born_vold_BI,1,3);
 
         Label label_skilsmisse = new Label("Skilsmisse");
-        layout.setConstraints(label_skilsmisse,3,0);
+        gridpane_middle.setConstraints(label_skilsmisse,3,0);
         label_skilsmisse.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
 
         CheckBox checkBox_skilsmisse_gen = new CheckBox("Generelt");
-        layout.setConstraints(checkBox_skilsmisse_gen,3,1);
+        gridpane_middle.setConstraints(checkBox_skilsmisse_gen,3,1);
 
 
         Label label_misbrugere_og_psykiske_syge = new Label("Misbrugere & psykiske syge");
-        layout.setConstraints(label_misbrugere_og_psykiske_syge,3,8);
+        gridpane_middle.setConstraints(label_misbrugere_og_psykiske_syge,3,8);
         label_misbrugere_og_psykiske_syge.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
 
         CheckBox checkBox_misbrugere_og_psykiske_syge = new CheckBox("Generelt");
-        layout.setConstraints(checkBox_misbrugere_og_psykiske_syge,3,9);
+        gridpane_middle.setConstraints(checkBox_misbrugere_og_psykiske_syge,3,9);
 
         Label label_maend = new Label("Mænd");
-        layout.setConstraints(label_maend,2,0);
+        gridpane_middle.setConstraints(label_maend,2,0);
         label_maend.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
 
         CheckBox checkBox_maend_generelt = new CheckBox("Generelt");
-        layout.setConstraints(checkBox_maend_generelt,2,1);
+        gridpane_middle.setConstraints(checkBox_maend_generelt,2,1);
 
         CheckBox checkBox_maend_Hjælp_til_udøvere = new CheckBox("Hjælp til udøvere af vold");
-        layout.setConstraints(checkBox_maend_Hjælp_til_udøvere,2,2);
+        gridpane_middle.setConstraints(checkBox_maend_Hjælp_til_udøvere,2,2);
 
         CheckBox checkBox_maend_Hjælp_til_ofre = new CheckBox("Hjælp til mænd udsat for vold");
-        layout.setConstraints(checkBox_maend_Hjælp_til_ofre,2,3);
+        gridpane_middle.setConstraints(checkBox_maend_Hjælp_til_ofre,2,3);
 
         Label label_etniske_kvinder = new Label("Etniske kvinder");
-        layout.setConstraints(label_etniske_kvinder,4,8);
+        gridpane_middle.setConstraints(label_etniske_kvinder,4,8);
         label_etniske_kvinder.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
 
         CheckBox checkBox_etniske_kvinder_generelt = new CheckBox("Generelt");
-        layout.setConstraints(checkBox_etniske_kvinder_generelt,4,9);
+        gridpane_middle.setConstraints(checkBox_etniske_kvinder_generelt,4,9);
 
         Label label_netvaerk = new Label("Netværk");
-        layout.setConstraints(label_netvaerk,2,8);
+        gridpane_middle.setConstraints(label_netvaerk,2,8);
         label_netvaerk.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
 
         CheckBox checkBox_netvaerk_generelt = new CheckBox("Generelt");
-        layout.setConstraints(checkBox_netvaerk_generelt,2,9);
+        gridpane_middle.setConstraints(checkBox_netvaerk_generelt,2,9);
 
         Label label_tom = new Label(" ");
-        layout.setConstraints(label_tom,0,7);
+        gridpane_middle.setConstraints(label_tom,0,7);
 
         Label label_unge = new Label("Unge");
-        layout.setConstraints(label_unge,0,8);
+        gridpane_middle.setConstraints(label_unge,0,8);
         label_unge.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
 
         CheckBox checkBox_unge_generelt = new CheckBox("Generelt");
-        layout.setConstraints(checkBox_unge_generelt,0,9);
+        gridpane_middle.setConstraints(checkBox_unge_generelt,0,9);
 
         Label label_pro_hjaelp = new Label("Professionel hjælp");
-        layout.setConstraints(label_pro_hjaelp,4,0);
+        gridpane_middle.setConstraints(label_pro_hjaelp,4,0);
         label_pro_hjaelp.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
 
         CheckBox checkBox_pro_laege = new CheckBox("Læge");
-        layout.setConstraints(checkBox_pro_laege,4,1);
+        gridpane_middle.setConstraints(checkBox_pro_laege,4,1);
 
         CheckBox checkBox_pro_psykolog = new CheckBox("Psykolog");
-        layout.setConstraints(checkBox_pro_psykolog,4,2);
+        gridpane_middle.setConstraints(checkBox_pro_psykolog,4,2);
 
         CheckBox checkBox_pro_politi = new CheckBox("Politi");
-        layout.setConstraints(checkBox_pro_politi,4,3);
+        gridpane_middle.setConstraints(checkBox_pro_politi,4,3);
 
         CheckBox checkBox_pro_retshjaelp = new CheckBox("Retshjælp");
-        layout.setConstraints(checkBox_pro_retshjaelp,4,4);
+        gridpane_middle.setConstraints(checkBox_pro_retshjaelp,4,4);
 
         CheckBox checkBox_pro_sygehus = new CheckBox("Sygehus");
-        layout.setConstraints(checkBox_pro_sygehus,4,5);
+        gridpane_middle.setConstraints(checkBox_pro_sygehus,4,5);
 
         CheckBox checkBox_pro_oekonomi = new CheckBox("Økonomi");
-        layout.setConstraints(checkBox_pro_oekonomi,4,6);
+        gridpane_middle.setConstraints(checkBox_pro_oekonomi,4,6);
 
         Label label_venner_skriver = new Label("Når venner skriver");
-        layout.setConstraints(label_venner_skriver,1,8);
+        gridpane_middle.setConstraints(label_venner_skriver,1,8);
         label_venner_skriver.setFont(Font.font("Verdana", FontWeight.BOLD, 13));
 
         CheckBox checkBox_venner_skriver = new CheckBox("Generelt");
-        layout.setConstraints(checkBox_venner_skriver,1,9);
+        gridpane_middle.setConstraints(checkBox_venner_skriver,1,9);
 
         Button button_search = new Button("Vis");
         button_search.setPrefSize(70,40);
-        buttomright.setAlignment(Pos.BOTTOM_RIGHT);
         button_search.setOnAction(e->
         {
 
@@ -277,7 +299,46 @@ public class FrontPage
 
         });
 
-        layout.getChildren().addAll(
+        Button button_all_off = new Button("Off");
+        button_all_off.setPrefSize(70,40);
+        button_all_off.setOnAction(e->{
+
+            checkBox_born_vold_BI.setSelected(false);
+            checkBox_born_vold_generelt.setSelected(false);
+            checkBox_born_vold_VI.setSelected(false);
+            checkBox_etniske_kvinder_generelt.setSelected(false);
+            checkBox_maend_generelt.setSelected(false);
+            checkBox_maend_Hjælp_til_ofre.setSelected(false);
+            checkBox_maend_Hjælp_til_udøvere.setSelected(false);
+            checkBox_misbrugere_og_psykiske_syge.setSelected(false);
+            checkBox_netvaerk_generelt.setSelected(false);
+            checkBox_pro_laege.setSelected(false);
+            checkBox_pro_oekonomi.setSelected(false);
+            checkBox_pro_politi.setSelected(false);
+            checkBox_pro_psykolog.setSelected(false);
+            checkBox_pro_retshjaelp.setSelected(false);
+            checkBox_pro_sygehus.setSelected(false);
+            checkBox_skilsmisse_gen.setSelected(false);
+            checkBox_unge_generelt.setSelected(false);
+            checkBox_venner_skriver.setSelected(false);
+            checkBox_vold_fysisk.setSelected(false);
+            checkBox_vold_generelt.setSelected(false);
+            checkBox_vold_materiel.setSelected(false);
+            checkBox_vold_okonomisk.setSelected(false);
+            checkBox_vold_psygisk.setSelected(false);
+            checkBox_vold_sex.setSelected(false);
+
+        });
+
+        Button button_luk = new Button("Luk");
+        button_luk.setPrefSize(70,40);
+        button_luk.setOnAction(e->
+        {
+            window.close();
+        });
+
+
+        gridpane_middle.getChildren().addAll(
                 label_all_vold,
                 checkBox_vold_generelt, checkBox_vold_sex, checkBox_vold_psygisk,checkBox_vold_fysisk,
                 checkBox_vold_materiel,checkBox_vold_okonomisk,
@@ -310,27 +371,35 @@ public class FrontPage
                 label_etniske_kvinder,
                 checkBox_etniske_kvinder_generelt,
 
-                label_tom
+                label_tom,
+
+                button_netraadgivning_og_metode, button_besvarelse, button_krisevurdering,
+                button_generelt, button_henvisningsliste
         );
 
-        topleft.getChildren().addAll(button_netraadgivning_og_metode, button_besvarelse, button_krisevurdering,
-                button_generelt, button_henvisningsliste);
+        topleft.getChildren().addAll(label_overskrift, label_underoverskrift);
 
         topright.getChildren().addAll(textFieldsoeg, button_soeg);
 
+
+        buttomleft.getChildren().addAll(button_search, button_all_off);
         if (user_level == 1)
         {
-            buttomright.getChildren().addAll(button_rediger, button_opret);
+            buttomleft.getChildren().addAll(button_rediger, button_opret);
         }
-        buttomright.getChildren().addAll(button_search);
+        buttomright.getChildren().addAll(button_luk);
+
+        buttomstuff.setLeft(buttomleft);
+        buttomstuff.setRight(buttomright);
 
         topstuff.setLeft(topleft);
         topstuff.setRight(topright);
-        borderPane.setBottom(buttomright);
-        borderPane.setTop(topstuff);
-        borderPane.setCenter(layout);
 
-        Scene scene = new Scene(borderPane, 950,420);
+        borderPane.setBottom(buttomstuff);
+        borderPane.setTop(topstuff);
+        borderPane.setCenter(gridpane_middle);
+
+        Scene scene = new Scene(borderPane, 1055,450);
 
         window.setScene(scene);
         window.setTitle("Danner - semesterprojekt alpha v0.9");
