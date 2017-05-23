@@ -273,7 +273,7 @@ public class FrontPage
 
 
             //sender status for alle checkboxer til (option_choosesend)
-            String message = logic.option_choosedsend(checkBox_vold_generelt, checkBox_vold_sex, checkBox_vold_psygisk,
+            String message = logic.optionChosenSend(checkBox_vold_generelt, checkBox_vold_sex, checkBox_vold_psygisk,
                     checkBox_vold_fysisk, checkBox_vold_materiel, checkBox_vold_okonomisk, checkBox_unge_generelt,
                     checkBox_born_vold_generelt, checkBox_born_vold_VI, checkBox_born_vold_BI, checkBox_venner_skriver,
                     checkBox_maend_generelt, checkBox_maend_Hjælp_til_udøvere, checkBox_maend_Hjælp_til_ofre,
