@@ -58,6 +58,7 @@ public class Logic
         return nyTxt;
     }
 
+    //WODB = WithOut DataBase (uden opslag til databasen)
     public String getCellTextFormatWODB(SingleCellText sct)
     {
         String txt = "";

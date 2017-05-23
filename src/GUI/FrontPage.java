@@ -7,10 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
@@ -288,8 +285,8 @@ public class FrontPage
         Button button_opret = new Button("Opret bruger");
         button_opret.setPrefHeight(40);
 
-        button_opret.setOnAction(e-> {
-
+        button_opret.setOnAction(e->
+        {
             opretBruger.createUser(logic);
         });
 
@@ -304,7 +301,7 @@ public class FrontPage
         });
 
         Button button_all_off = new Button("Afmarkér");
-        button_all_off.setPrefSize(70,40);
+        button_all_off.setPrefWidth(154);
         button_all_off.setOnAction(e->{
 
             checkBox_born_vold_BI.setSelected(false);
@@ -382,10 +379,13 @@ public class FrontPage
 
         topright.getChildren().addAll(textFieldsoeg, button_soeg);
 
-        midright.getChildren().addAll(button_netraadgivning_og_metode, button_besvarelse, button_krisevurdering,
-                button_generelt, button_henvisningsliste);
+        Region region = new Region();
+        region.setPrefHeight(50);
 
-        buttomleft.getChildren().addAll(button_search, button_all_off);
+        midright.getChildren().addAll(button_netraadgivning_og_metode, button_besvarelse, button_krisevurdering,
+                button_generelt, button_henvisningsliste, region, button_all_off);
+
+        buttomleft.getChildren().addAll(button_search);
         if (user_level == 1)
         {
             buttomleft.getChildren().addAll(button_rediger, button_opret);
