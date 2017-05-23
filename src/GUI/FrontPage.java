@@ -37,6 +37,8 @@ public class FrontPage
         BorderPane topstuff = new BorderPane();
         BorderPane buttomstuff = new BorderPane();
 
+
+        VBox midright = new VBox();
         HBox buttomright = new HBox();
         HBox buttomleft = new HBox();
         VBox topleft = new VBox();
@@ -46,6 +48,8 @@ public class FrontPage
         buttomright.setSpacing(8);
         buttomleft.setPadding(new Insets(10,10,10,10));
         buttomleft.setSpacing(8);
+        midright.setPadding(new Insets(10,10,10,10));
+        midright.setSpacing(4);
         topright.setPadding(new Insets(10,10,10,10));
         topleft.setPadding(new Insets(2,10,10,10));
 
@@ -65,7 +69,7 @@ public class FrontPage
 
         Button button_netraadgivning_og_metode = new Button("Netrådgivning og metode");
         GridPane.setConstraints(button_netraadgivning_og_metode,5,0);
-        button_netraadgivning_og_metode.setPrefWidth(154);
+        button_netraadgivning_og_metode.setPrefSize(154,15);
                 button_netraadgivning_og_metode.setOnAction(e->
         {
             show.vis("Generelt\n" + logic.getCellTextFormat(0,0) +
@@ -76,7 +80,7 @@ public class FrontPage
 
         Button button_besvarelse = new Button ("Besvarelse");
         GridPane.setConstraints(button_besvarelse,5,1);
-        button_besvarelse.setPrefWidth(154);
+        button_besvarelse.setPrefSize(154,15);
         button_besvarelse.setOnAction(e->
         {
             show.vis("Generelt\n" + logic.getCellTextFormat(0,1) +
@@ -89,7 +93,7 @@ public class FrontPage
 
         Button button_krisevurdering = new Button("Krisevurdering");
         GridPane.setConstraints(button_krisevurdering,5,2);
-        button_krisevurdering.setPrefWidth(154);
+        button_krisevurdering.setPrefSize(154,15);
         button_krisevurdering.setOnAction(e->
         {
             show.vis("Generelt\n" + logic.getCellTextFormat(0,2) +
@@ -99,7 +103,7 @@ public class FrontPage
 
         Button button_generelt = new Button ("Generelt");
         GridPane.setConstraints(button_generelt,5,3);
-        button_generelt.setPrefWidth(154);
+        button_generelt.setPrefSize(154,15);
         button_generelt.setOnAction(e ->
         {
             show.vis("Generelt\n" + logic.getCellTextFormat(0,0) +
@@ -110,7 +114,7 @@ public class FrontPage
 
         Button button_henvisningsliste = new Button ("Henvisningsliste");
         GridPane.setConstraints(button_henvisningsliste,5,4);
-        button_henvisningsliste.setPrefWidth(154);
+        button_henvisningsliste.setPrefSize(154,5);
         button_henvisningsliste.setOnAction(e->
         {
             show.vis(logic.getCellText(2));
@@ -299,7 +303,7 @@ public class FrontPage
 
         });
 
-        Button button_all_off = new Button("Off");
+        Button button_all_off = new Button("Afmarker");
         button_all_off.setPrefSize(70,40);
         button_all_off.setOnAction(e->{
 
@@ -371,16 +375,15 @@ public class FrontPage
                 label_etniske_kvinder,
                 checkBox_etniske_kvinder_generelt,
 
-                label_tom,
-
-                button_netraadgivning_og_metode, button_besvarelse, button_krisevurdering,
-                button_generelt, button_henvisningsliste
+                label_tom
         );
 
         topleft.getChildren().addAll(label_overskrift, label_underoverskrift);
 
         topright.getChildren().addAll(textFieldsoeg, button_soeg);
 
+        midright.getChildren().addAll(button_netraadgivning_og_metode, button_besvarelse, button_krisevurdering,
+                button_generelt, button_henvisningsliste);
 
         buttomleft.getChildren().addAll(button_search, button_all_off);
         if (user_level == 1)
@@ -395,11 +398,12 @@ public class FrontPage
         topstuff.setLeft(topleft);
         topstuff.setRight(topright);
 
+        borderPane.setRight(midright);
         borderPane.setBottom(buttomstuff);
         borderPane.setTop(topstuff);
         borderPane.setCenter(gridpane_middle);
 
-        Scene scene = new Scene(borderPane, 1055,450);
+        Scene scene = new Scene(borderPane, 1060,450);
 
         window.setScene(scene);
         window.setTitle("Danner - semesterprojekt alpha v0.9");
