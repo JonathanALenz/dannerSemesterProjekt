@@ -35,7 +35,7 @@ public class ErrorMessage
 
         layout.getChildren().addAll(label_error_msg, button_return);
 
-        Scene scene = new Scene(layout, 210, 80);
+        Scene scene = new Scene(layout, 230, 100);
         window.setScene(scene);
         window.showAndWait();
     }
