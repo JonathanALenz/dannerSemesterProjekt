@@ -186,6 +186,43 @@ public class Shovel
         return loginUser;
     }
 
+    public boolean checkUsername(String userName)
+    {
+        boolean userExist = false;
+        try
+        {
+            Class.forName(jdbcDriver);
+            Connection conn = DriverManager.getConnection(dbURL, user, pass);
+
+            //PreparedStatement!
+            String sqlQuery = "SELECT * FROM sql11172288.users WHERE user_name = ?";
+            PreparedStatement pstmt = conn.prepareStatement(sqlQuery);
+            pstmt.setString(1, userName);
+
+
+            ResultSet rs = pstmt.executeQuery();
+            rs.next();
+
+            if(rs != null)
+            {
+                userExist = true;
+            }
+            rs.close();
+            pstmt.close();
+            conn.close();
+        }
+        catch (ClassNotFoundException e)
+        {
+            System.out.println("Couldn't load driver");
+        }
+        catch (SQLException e)
+        {
+            System.out.println("Fejl");
+            e.printStackTrace();
+        }
+        return userExist;
+    }
+
     public void createNewUser(String userName, int hashedUserPass, String role)
     {
         try

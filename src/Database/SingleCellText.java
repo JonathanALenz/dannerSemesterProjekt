@@ -22,6 +22,16 @@ public class SingleCellText
         this.text = text;
     }
 
+    public void setType_id(int type_id)
+    {
+        this.type_id = type_id;
+    }
+
+    public void setCat_name(String cat_name)
+    {
+        this.cat_name = cat_name;
+    }
+
     public String getCat_name()
     {
         return cat_name;

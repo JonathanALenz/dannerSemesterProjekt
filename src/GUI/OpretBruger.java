@@ -56,19 +56,38 @@ public class OpretBruger
         layout.setConstraints(button_opret,1,4);
         layout.setHalignment(button_opret, HPos.RIGHT);
 
-        String passWordTekst = passwordField_password.getText();
-        String passWordTekstRep = passwordField_gentag_password.getText();
-        String brugerNavn = textField_brugernavn.getText();
         button_opret.setOnAction(e->
         {
-            if (passWordTekst.equals(passWordTekstRep))
-            {
-                logic.createNewUser(brugerNavn, passWordTekstRep,
-                        choiceBox.getValue());
-                ErrorMessage errorMessage1 = new ErrorMessage(brugerNavn + " " +
-                        "er nu oprettet som " + choiceBox.getValue(), "Ny bruger");
-                window.close();
-            }
+//            if (!textField_brugernavn.getText().equals(""))
+//            {
+//                if(!passwordField_password.getText().equals(""))
+//                {
+                    if (!logic.checkUserName(textField_brugernavn.getText()))
+                    {
+                        if (passwordField_password.getText().equals(passwordField_gentag_password.getText()))
+                        {
+                            logic.createNewUser(textField_brugernavn.getText(), passwordField_password.getText(),
+                                    choiceBox.getValue());
+                            ErrorMessage errorMessage1 = new ErrorMessage(textField_brugernavn.getText() + " " +
+                                    "er nu oprettet som " + choiceBox.getValue(), "Ny bruger");
+                            window.close();
+                        } else
+                        {
+                            ErrorMessage errorMessage2 = new ErrorMessage("Kodeord skal være ens.", "Fejl");
+                        }
+                    } else
+                    {
+                        ErrorMessage errorMessage3 = new ErrorMessage("Brugernavn findes allerede, vælg et andet.", "Fejl");
+                    }
+//                }else
+//                {
+//                    ErrorMessage errorMessage3 = new ErrorMessage("Kodeord må ikke være tomt.", "Fejl");
+//                }
+//            }
+//            else
+//            {
+//                ErrorMessage errorMessage4 =new ErrorMessage("Brugernavn må ikke være tomt.","Fejl");
+//            }
         });
 
 

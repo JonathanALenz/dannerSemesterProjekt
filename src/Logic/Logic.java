@@ -140,6 +140,11 @@ public class Logic
         return user;
     }
 
+    public boolean checkUserName(String username)
+    {
+        return shovel.checkUsername(username);
+    }
+
     public void createNewUser(String userName, String userPass, String role)
     {
         int hashedUserPass = userPass.hashCode();
