@@ -7,10 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
@@ -68,7 +65,7 @@ public class FrontPage
         label_underoverskrift.setFont(Font.font("",16));
 
         Button button_netraadgivning_og_metode = new Button("Netrådgivning og metode");
-        GridPane.setConstraints(button_netraadgivning_og_metode,5,0);
+        gridpane_middle.setConstraints(button_netraadgivning_og_metode,5,0);
         button_netraadgivning_og_metode.setPrefSize(154,15);
                 button_netraadgivning_og_metode.setOnAction(e->
         {
@@ -79,7 +76,7 @@ public class FrontPage
         });
 
         Button button_besvarelse = new Button ("Besvarelse");
-        GridPane.setConstraints(button_besvarelse,5,1);
+        gridpane_middle.setConstraints(button_besvarelse,5,1);
         button_besvarelse.setPrefSize(154,15);
         button_besvarelse.setOnAction(e->
         {
@@ -92,7 +89,7 @@ public class FrontPage
         });
 
         Button button_krisevurdering = new Button("Krisevurdering");
-        GridPane.setConstraints(button_krisevurdering,5,2);
+        gridpane_middle.setConstraints(button_krisevurdering,5,2);
         button_krisevurdering.setPrefSize(154,15);
         button_krisevurdering.setOnAction(e->
         {
@@ -102,7 +99,7 @@ public class FrontPage
         });
 
         Button button_generelt = new Button ("Generelt");
-        GridPane.setConstraints(button_generelt,5,3);
+        gridpane_middle.setConstraints(button_generelt,5,3);
         button_generelt.setPrefSize(154,15);
         button_generelt.setOnAction(e ->
         {
@@ -113,7 +110,7 @@ public class FrontPage
         });
 
         Button button_henvisningsliste = new Button ("Henvisningsliste");
-        GridPane.setConstraints(button_henvisningsliste,5,4);
+        gridpane_middle.setConstraints(button_henvisningsliste,5,4);
         button_henvisningsliste.setPrefSize(154,5);
         button_henvisningsliste.setOnAction(e->
         {
@@ -288,8 +285,8 @@ public class FrontPage
         Button button_opret = new Button("Opret bruger");
         button_opret.setPrefHeight(40);
 
-        button_opret.setOnAction(e-> {
-
+        button_opret.setOnAction(e->
+        {
             opretBruger.createUser(logic);
         });
 
@@ -304,7 +301,7 @@ public class FrontPage
         });
 
         Button button_all_off = new Button("Afmarkér");
-        button_all_off.setPrefSize(70,40);
+        button_all_off.setPrefWidth(154);
         button_all_off.setOnAction(e->{
 
             checkBox_born_vold_BI.setSelected(false);
@@ -382,10 +379,13 @@ public class FrontPage
 
         topright.getChildren().addAll(textFieldsoeg, button_soeg);
 
-        midright.getChildren().addAll(button_netraadgivning_og_metode, button_besvarelse, button_krisevurdering,
-                button_generelt, button_henvisningsliste);
+        Region region = new Region();
+        region.setPrefHeight(50);
 
-        buttomleft.getChildren().addAll(button_search, button_all_off);
+        midright.getChildren().addAll(button_netraadgivning_og_metode, button_besvarelse, button_krisevurdering,
+                button_generelt, button_henvisningsliste, region, button_all_off);
+
+        buttomleft.getChildren().addAll(button_search);
         if (user_level == 1)
         {
             buttomleft.getChildren().addAll(button_rediger, button_opret);
