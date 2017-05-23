@@ -8,9 +8,6 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-/**
- * Created by bruger on 11-05-2017.
- */
 public class ErrorMessage
 {
     public ErrorMessage(String message, String title)
@@ -18,9 +15,8 @@ public class ErrorMessage
         wrongCredentials(message, title);
     }
 
-    public void wrongCredentials(String message, String title)
+    private void wrongCredentials(String message, String title)
     {
-
         Stage window = new Stage();
         GridPane layout = new GridPane();
         window.setTitle(title);

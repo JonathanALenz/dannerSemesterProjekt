@@ -10,9 +10,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import Logic.*;
 
-/**
- * Created by bruger on 11-05-2017.
- */
 public class OpretBruger
 {
 
