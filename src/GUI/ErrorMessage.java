@@ -25,12 +25,10 @@ public class ErrorMessage
         GridPane layout = new GridPane();
         window.setTitle(title);
 
-
         layout.setPadding(new Insets(2,10,10,10));
         layout.setVgap(8);
         layout.setHgap(6);
         window.initModality(Modality.APPLICATION_MODAL);
-
 
         Label label_error_msg = new Label(message);
         GridPane.setConstraints(label_error_msg,0,0);
