@@ -13,10 +13,6 @@ import javafx.stage.Stage;
  */
 public class ErrorMessage
 {
-
-    private String message = "";
-    private String title = "";
-
     public ErrorMessage(String message, String title)
     {
         wrongCredentials(message, title);
