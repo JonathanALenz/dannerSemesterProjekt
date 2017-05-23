@@ -203,9 +203,12 @@ public class Shovel
             ResultSet rs = pstmt.executeQuery();
             rs.next();
 
-            if(rs != null)
+            if(rs!=null)
             {
-                userExist = true;
+                if(rs.getString("user_name").equalsIgnoreCase(userName))
+                {
+                    userExist = true;
+                }
             }
             rs.close();
             pstmt.close();

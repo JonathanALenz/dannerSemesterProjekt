@@ -58,10 +58,10 @@ public class OpretBruger
 
         button_opret.setOnAction(e->
         {
-//            if (!textField_brugernavn.getText().equals(""))
-//            {
-//                if(!passwordField_password.getText().equals(""))
-//                {
+            if (!textField_brugernavn.getText().equals(""))
+            {
+                if(!passwordField_password.getText().equals(""))
+                {
                     if (!logic.checkUserName(textField_brugernavn.getText()))
                     {
                         if (passwordField_password.getText().equals(passwordField_gentag_password.getText()))
@@ -79,15 +79,15 @@ public class OpretBruger
                     {
                         ErrorMessage errorMessage3 = new ErrorMessage("Brugernavn findes allerede, vælg et andet.", "Fejl");
                     }
-//                }else
-//                {
-//                    ErrorMessage errorMessage3 = new ErrorMessage("Kodeord må ikke være tomt.", "Fejl");
-//                }
-//            }
-//            else
-//            {
-//                ErrorMessage errorMessage4 =new ErrorMessage("Brugernavn må ikke være tomt.","Fejl");
-//            }
+                }else
+                {
+                    ErrorMessage errorMessage3 = new ErrorMessage("Kodeord må ikke være tomt.", "Fejl");
+                }
+            }
+            else
+            {
+                ErrorMessage errorMessage4 =new ErrorMessage("Brugernavn må ikke være tomt.","Fejl");
+            }
         });
 
 
