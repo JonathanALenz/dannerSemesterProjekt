@@ -1,8 +1,5 @@
 package Database;
 
-/**
- * Created by Anders on 09-May-17.
- */
 public class SingleCellText
 {
     private int type_id;
