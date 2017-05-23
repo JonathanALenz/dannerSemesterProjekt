@@ -1,4 +1,4 @@
-package Database;
+package Logic;
 
 /**
  * Created by Anders on 10-May-17.
