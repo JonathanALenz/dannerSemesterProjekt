@@ -64,7 +64,7 @@ public class FrontPage
         Label label_overskrift = new Label("Manual for Danners Netrådgivning");
         label_overskrift.setFont(Font.font("",22));
 
-        Label label_underoverskrift = new Label("Vælg problematikker for at få vist information.");
+        Label label_underoverskrift = new Label("Vælg problematikker for at få vist information og klik på \"Vis\".");
         label_underoverskrift.setFont(Font.font("",16));
 
         Button button_netraadgivning_og_metode = new Button("Netrådgivning og metode");
@@ -273,7 +273,7 @@ public class FrontPage
 
 
             //sender status for alle checkboxer til (option_choosesend)
-            String message = logic.option_choosedsend(checkBox_vold_generelt, checkBox_vold_sex, checkBox_vold_psygisk,
+            String message = logic.optionChosenSend(checkBox_vold_generelt, checkBox_vold_sex, checkBox_vold_psygisk,
                     checkBox_vold_fysisk, checkBox_vold_materiel, checkBox_vold_okonomisk, checkBox_unge_generelt,
                     checkBox_born_vold_generelt, checkBox_born_vold_VI, checkBox_born_vold_BI, checkBox_venner_skriver,
                     checkBox_maend_generelt, checkBox_maend_Hjælp_til_udøvere, checkBox_maend_Hjælp_til_ofre,
@@ -303,7 +303,7 @@ public class FrontPage
 
         });
 
-        Button button_all_off = new Button("Afmarker");
+        Button button_all_off = new Button("Afmarkér");
         button_all_off.setPrefSize(70,40);
         button_all_off.setOnAction(e->{
 

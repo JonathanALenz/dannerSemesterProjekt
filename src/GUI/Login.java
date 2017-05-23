@@ -13,7 +13,7 @@ import Logic.*;
 public class Login
 {
 
-    public void first_login (Stage primaryStage) throws Exception
+    public void first_login (Stage primaryStage)
     {
         Logic logic = new Logic();
 

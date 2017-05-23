@@ -147,18 +147,18 @@ public class Logic
     }
 
     //Modtager alle checkboxe og returnere en sammensat string af de valgte underemners tekster.
-    public String option_choosedsend (CheckBox v_generalt, CheckBox v_sex, CheckBox v_psygisk, CheckBox v_fysisk,
-                                      CheckBox v_materiel, CheckBox v_oekonomi, CheckBox unge, CheckBox BogV_gen,
-                                      CheckBox BogV_VI, CheckBox BogV_BI, CheckBox venner_skriver, CheckBox man_gen,
-                                      CheckBox mand_udoever, CheckBox mand_ofre, CheckBox netvaerk,
-                                      CheckBox Skilsmisser_gen, CheckBox misbrug, CheckBox p_laege, CheckBox p_psykolog,
-                                      CheckBox p_polti, CheckBox p_retshjaelp, CheckBox p_sygehus, CheckBox p_oekonomi,
-                                      CheckBox etniske)
+    public String optionChosenSend(CheckBox v_generelt, CheckBox v_sex, CheckBox v_psykisk, CheckBox v_fysisk,
+                                   CheckBox v_materiel, CheckBox v_oekonomi, CheckBox unge, CheckBox bogV_gen,
+                                   CheckBox bogV_VI, CheckBox bogV_BI, CheckBox venner_skriver, CheckBox man_gen,
+                                   CheckBox mand_udoever, CheckBox mand_ofre, CheckBox netvaerk,
+                                   CheckBox skilsmisser_gen, CheckBox misbrug, CheckBox p_laege, CheckBox p_psykolog,
+                                   CheckBox p_politi, CheckBox p_retshjaelp, CheckBox p_sygehus, CheckBox p_oekonomi,
+                                   CheckBox etniske)
     {
 
         String msg = "";
 
-        if (v_generalt.isSelected())
+        if (v_generelt.isSelected())
         {
             msg += "VOLD\n\n" + getCellTextFormat(0, 8) + "\n\n" +
                     "VOLDENS 5 FORMER(ofte er alle 5 former tilstede):\n\n" + getCellText(7, 8) + printDash(118);
@@ -170,7 +170,7 @@ public class Logic
                     "HENVISNGER:\n\n" + getCellText(2, 11) + printDash(118);
         }
 
-        if (v_psygisk.isSelected())
+        if (v_psykisk.isSelected())
         {
             msg += "PSYGISK VOLD\n\nGENERELT:\n\n" + getCellTextFormat(0,10) +
                     "EKSEMPLER PÅ SVAR:\n\n" + getCellText(1,10) + printDash(118);
@@ -195,16 +195,16 @@ public class Logic
                     "EKSEMPLER PÅ SVAR:\n\n" + getCellText(1,6) +
                     "HENVISNINGER:\n\n" + getCellText(2,6) + printDash(118);
         }
-        if (BogV_gen.isSelected())
+        if (bogV_gen.isSelected())
         {
             msg += "BØRN OG VOLD\n\nGENERELT:\n\n" + getCellTextFormat(0,14) + printDash(118);
         }
-        if (BogV_VI.isSelected())
+        if (bogV_VI.isSelected())
         {
             msg += "NÅR INDSKRIVER ER VOKSEN:\n\n" + getCellTextFormat(0,15) +
                     "EKSEMPLER PÅ SVAR:\n\n" + getCellText(1,15) + printDash(118);
         }
-        if (BogV_BI.isSelected())
+        if (bogV_BI.isSelected())
         {
             msg += "NÅR INDSKRIVER ER BARN:\n\n" + getCellTextFormat(0,16) +
                     "EKSEMPLER PÅ SVAR:\n\n" + getCellText(1,16) +
@@ -236,7 +236,7 @@ public class Logic
             msg += "NETVÆRK\n\nGENERELT:\n\n" + getCellTextFormat(0,19) +
                     "EKSEMPLER PÅ SVAR:\n\n" + getCellText(1,19) + printDash(118);
         }
-        if (Skilsmisser_gen.isSelected())
+        if (skilsmisser_gen.isSelected())
         {
             msg += "SKILSMISSER\n\nGENERELT:\n\n" + getCellTextFormat(0,17) +
                     "EKSEMPLER PÅ SVAR\n\n" + getCellText(1,17) + printDash(118);
@@ -258,7 +258,7 @@ public class Logic
                     "Eksempler på svar:\n\n" + getCellText(1,21) +
                     "Henvisninger:\n\n" + getCellText(2, 21) + printDash(118);
         }
-        if (p_polti.isSelected())
+        if (p_politi.isSelected())
         {
             msg += "Professionel hjælp: Politi\n\n" + getCellTextFormat(0,22) +
                     "Eksempler på svar:\n\n" + getCellText(1,22) + printDash(118);
