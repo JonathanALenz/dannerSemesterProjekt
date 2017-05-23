@@ -68,7 +68,7 @@ public class FrontPage
         label_underoverskrift.setFont(Font.font("",16));
 
         Button button_netraadgivning_og_metode = new Button("Netrådgivning og metode");
-        GridPane.setConstraints(button_netraadgivning_og_metode,5,0);
+        gridpane_middle.setConstraints(button_netraadgivning_og_metode,5,0);
         button_netraadgivning_og_metode.setPrefSize(154,15);
                 button_netraadgivning_og_metode.setOnAction(e->
         {
@@ -79,7 +79,7 @@ public class FrontPage
         });
 
         Button button_besvarelse = new Button ("Besvarelse");
-        GridPane.setConstraints(button_besvarelse,5,1);
+        gridpane_middle.setConstraints(button_besvarelse,5,1);
         button_besvarelse.setPrefSize(154,15);
         button_besvarelse.setOnAction(e->
         {
@@ -92,7 +92,7 @@ public class FrontPage
         });
 
         Button button_krisevurdering = new Button("Krisevurdering");
-        GridPane.setConstraints(button_krisevurdering,5,2);
+        gridpane_middle.setConstraints(button_krisevurdering,5,2);
         button_krisevurdering.setPrefSize(154,15);
         button_krisevurdering.setOnAction(e->
         {
@@ -102,7 +102,7 @@ public class FrontPage
         });
 
         Button button_generelt = new Button ("Generelt");
-        GridPane.setConstraints(button_generelt,5,3);
+        gridpane_middle.setConstraints(button_generelt,5,3);
         button_generelt.setPrefSize(154,15);
         button_generelt.setOnAction(e ->
         {
@@ -113,7 +113,7 @@ public class FrontPage
         });
 
         Button button_henvisningsliste = new Button ("Henvisningsliste");
-        GridPane.setConstraints(button_henvisningsliste,5,4);
+        gridpane_middle.setConstraints(button_henvisningsliste,5,4);
         button_henvisningsliste.setPrefSize(154,5);
         button_henvisningsliste.setOnAction(e->
         {
