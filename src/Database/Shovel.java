@@ -1,5 +1,7 @@
 package Database;
 
+import Logic.User;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -99,8 +101,6 @@ public class Shovel
         return singleCellTexts;
 
     }
-
-
 
     public List<SingleCellText> searchWord(String word)
     {

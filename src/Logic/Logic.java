@@ -2,10 +2,8 @@ package Logic;
 
 import Database.Shovel;
 import Database.SingleCellText;
-import Database.User;
 import javafx.scene.control.CheckBox;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
