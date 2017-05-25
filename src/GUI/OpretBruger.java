@@ -71,15 +71,18 @@ public class OpretBruger
                             ErrorMessage errorMessage1 = new ErrorMessage(textField_brugernavn.getText() + " " +
                                     "er nu oprettet som " + choiceBox.getValue(), "Ny bruger");
                             window.close();
-                        } else
+                        }
+                        else
                         {
                             ErrorMessage errorMessage2 = new ErrorMessage("Kodeord skal være ens.", "Fejl");
                         }
-                    } else
+                    }
+                    else
                     {
                         ErrorMessage errorMessage3 = new ErrorMessage("Brugernavn findes allerede, vælg et andet.", "Fejl");
                     }
-                }else
+                }
+                else
                 {
                     ErrorMessage errorMessage3 = new ErrorMessage("Kodeord må ikke være tomt.", "Fejl");
                 }

@@ -8,7 +8,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        //Åbner login vindue
+
         Login login = new Login();
         login.first_login(primaryStage);
     }

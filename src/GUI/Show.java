@@ -33,7 +33,7 @@ public class Show {
         main_body.setWrapText(true);
 
 
-        Button button_return = new Button("Return");
+        Button button_return = new Button("Tilbage");
         layout.setConstraints(button_return,0,1);
         layout.setHalignment(button_return, HPos.RIGHT);
         button_return.setOnAction(e->window.close());
