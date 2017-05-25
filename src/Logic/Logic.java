@@ -264,34 +264,34 @@ public class Logic
         }
         if (p_laege.isSelected())
         {
-            msg +=  "Professionel hjælp: Læge\n\n" + getCellTextFormat(0,20) +
-                    "Eksempler på svar:\n\n" + getCellText(1,20) + printDash(118);
+            msg +=  "PROFESSIONEL HJÆLP: LÆGE\n\n" + getCellTextFormat(0,20) +
+                    "EKSEMPLER PÅ SVAR:\n\n" + getCellText(1,20) + printDash(118);
         }
         if (p_psykolog.isSelected())
         {
-            msg += "Professionel hjælp: Psykolog\n\n" + getCellTextFormat(0,21) +
-                    "Eksempler på svar:\n\n" + getCellText(1,21) +
-                    "Henvisninger:\n\n" + getCellText(2, 21) + printDash(118);
+            msg += "PROFESSIONEL HJÆLP: PSYKOLOG\n\n" + getCellTextFormat(0,21) +
+                    "EKSEMPLER PÅ SVAR:\n\n" + getCellText(1,21) +
+                    "HENVISNINGER:\n\n" + getCellText(2, 21) + printDash(118);
         }
         if (p_politi.isSelected())
         {
-            msg += "Professionel hjælp: Politi\n\n" + getCellTextFormat(0,22) +
-                    "Eksempler på svar:\n\n" + getCellText(1,22) + printDash(118);
+            msg += "PROFESSIONEL HJÆLP: POLITI\n\n" + getCellTextFormat(0,22) +
+                    "EKSEMPLER PÅ SVAR:\n\n" + getCellText(1,22) + printDash(118);
 
         }
         if (p_retshjaelp.isSelected())
         {
-            msg += "Professionel hjælp: Retshjælp\n\n" + getCellTextFormat(0,23) +
-                    "Eksempler på svar:\n\n" + getCellText(1,23) + printDash(118);
+            msg += "PROFESSIONEL HJÆLP: RETSHJÆLP\n\n" + getCellTextFormat(0,23) +
+                    "EKSEMPLER PÅ SVAR:\n\n" + getCellText(1,23) + printDash(118);
         }
         if (p_sygehus.isSelected())
         {
-            msg += "Professionel hjælp: Sygehus\n\n" + getCellTextFormat(0,24) + printDash(118);
+            msg += "PROFESSIONEL HJÆLP: SYGEHUS\n\n" + getCellTextFormat(0,24) + printDash(118);
         }
         if (p_oekonomi.isSelected())
         {
-            msg += "Professionel hjælp: Økonomi\n\n" + getCellTextFormat(0,25) +
-                    "Eksempler på svar:\n\n" + getCellText(1,25) + printDash(118);
+            msg += "PROFESSIONEL HJÆLP: ØKONOMI\n\n" + getCellTextFormat(0,25) +
+                    "EKSEMPLER PÅ SVAR:\n\n" + getCellText(1,25) + printDash(118);
         }
         if (etniske.isSelected())
         {
@@ -306,34 +306,34 @@ public class Logic
     }
 
     //TEST KODE
-    public String getCellTextFormatWODB(List<SingleCellText> scts)
-    {
-        String txt = "";
-        String nyTxt = "";
-
-        for (SingleCellText sct: scts)
-        {
-            txt += sct.getText();
-
-            //Opretter et String array med alle elementer fra den hentede tekst uden mellemrum.
-            String[] splittedString = txt.split(" ");
-
-            //Løkken finder #n tegnene, erstatter dem med en ny linje. Ellers indsætter den et mellemrum.
-            for (int i = 0; i < splittedString.length; i++)
-            {
-                if(splittedString[i].equals("#n"))
-                {
-                    nyTxt += "\n";
-                }
-                else
-                {
-                    nyTxt += splittedString[i] + " ";
-                }
-            }
-        }
-        nyTxt += "OVERSKRIFT\n\n";
-        return nyTxt;
-    }
+//    public String getCellTextFormatWODB(List<SingleCellText> scts)
+//    {
+//        String txt = "";
+//        String nyTxt = "";
+//
+//        for (SingleCellText sct: scts)
+//        {
+//            txt += sct.getText();
+//
+//            //Opretter et String array med alle elementer fra den hentede tekst uden mellemrum.
+//            String[] splittedString = txt.split(" ");
+//
+//            //Løkken finder #n tegnene, erstatter dem med en ny linje. Ellers indsætter den et mellemrum.
+//            for (int i = 0; i < splittedString.length; i++)
+//            {
+//                if(splittedString[i].equals("#n"))
+//                {
+//                    nyTxt += "\n";
+//                }
+//                else
+//                {
+//                    nyTxt += splittedString[i] + " ";
+//                }
+//            }
+//        }
+//        nyTxt += "OVERSKRIFT\n\n";
+//        return nyTxt;
+//    }
 
 
     public String printDash(int antal)

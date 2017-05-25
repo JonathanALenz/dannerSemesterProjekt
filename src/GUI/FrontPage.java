@@ -76,10 +76,10 @@ public class FrontPage
         button_netraadgivning_og_metode.setPrefSize(154,15);
                 button_netraadgivning_og_metode.setOnAction(e->
         {
-            show.vis("Generelt\n" + logic.getCellTextFormat(0,0) +
-                    "Gode formuleringer:\n" + logic.getCellText(5,0) + "\n\n" +
-                    "Vores rolle er:\n" + logic.getCellText(6,0) +"\n\n" +
-                    "Undgå at:\n" + logic.getCellText(4,0) + "\n\n");
+            show.vis("GENERELT\n" + logic.getCellTextFormat(0,0) +
+                    "GODE FORMULERINGER:\n" + logic.getCellText(5,0) + "\n\n" +
+                    "VORES ROLLE ER:\n" + logic.getCellText(6,0) +"\n\n" +
+                    "UNDGÅ AT:\n" + logic.getCellText(4,0) + "\n\n");
         });
 
         Button button_besvarelse = new Button ("Besvarelse");
@@ -87,12 +87,12 @@ public class FrontPage
         button_besvarelse.setPrefSize(154,15);
         button_besvarelse.setOnAction(e->
         {
-            show.vis("Generelt\n" + logic.getCellTextFormat(0,1) +
-                    "Indledning - Sådan indleder du en besvarelse:\n" +
-                    "Eksempler på tekster\n" + logic.getCellText(13,1) + "\n\n" +
-                    "Midte - Sådan rådgiver du:\n" + logic.getCellTextFormat(17,1) +
-                    "Afslutning - Sådan afslutter du en besvarelse\n\nAfslutningsvis åbner vi for " +
-                    "at indskriver altid er velkommen til at tage kontakt igen.\n" + logic.getCellText(14,1));
+            show.vis("GENERELT\n" + logic.getCellTextFormat(0,1) +
+                    "INDLEDNING - SÅDAN INDLEDER DU EN BESVARELSE:\n" +
+                    "EKSEMPLER PÅ TEKSTER\n" + logic.getCellText(13,1) + "\n\n" +
+                    "MIDTE - SÅDAN RÅDGIVER DU:\n" + logic.getCellTextFormat(17,1) +
+                    "AFSLUTNING - SÅDAN AFSLUTTER DU DIN BESVARELSE\n\nAFSLUTNINGSVIS ÅBNER VI FOR " +
+                    "AT INDSKRIVER ALTID ER VELKOMMEN TIL AT TAGE KONTAKT IGEN\n" + logic.getCellText(14,1));
         });
 
         Button button_krisevurdering = new Button("Krisevurdering");
@@ -100,9 +100,9 @@ public class FrontPage
         button_krisevurdering.setPrefSize(154,15);
         button_krisevurdering.setOnAction(e->
         {
-            show.vis("Generelt\n" + logic.getCellTextFormat(0,2) +
-                    "Eksempler på tekster:\n" + logic.getCellText(1,2) + "\n\n" +
-                    "Henvisninger:\n" + logic.getCellText(2,2));
+            show.vis("GENERELT\n" + logic.getCellTextFormat(0,2) +
+                    "EKSEMPLER PÅ TEKSTER:\n" + logic.getCellText(1,2) + "\n\n" +
+                    "HENVISNINGER:\n" + logic.getCellText(2,2));
         });
 
         Button button_generelt = new Button ("Generelt");
@@ -110,10 +110,10 @@ public class FrontPage
         button_generelt.setPrefSize(154,15);
         button_generelt.setOnAction(e ->
         {
-            show.vis("Generelt\n" + logic.getCellTextFormat(0,0) +
-                     "Gode formuleringer\n\n" + logic.getCellText(5,0) +
-                     "Vores rolle er:\n\n" + logic.getCellText(6,0) +
-                     "Undgå at:\n\n" + logic.getCellText(4,0));
+            show.vis("GENERELT\n" + logic.getCellTextFormat(0,0) +
+                     "GODE FORMULERINGER\n\n" + logic.getCellText(5,0) +
+                     "VORES ROLLE ER:\n\n" + logic.getCellText(6,0) +
+                     "UNDGÅ AT:\n\n" + logic.getCellText(4,0));
         });
 
         Button button_henvisningsliste = new Button ("Henvisningsliste");
@@ -136,15 +136,15 @@ public class FrontPage
         Button button_soeg = new Button("Søg");
         button_soeg.setOnAction(e->
         {
-            String tekstFelt = textFieldsoeg.getText();
-            String msg = logic.getSearchedWord(tekstFelt);
+            String word = textFieldsoeg.getText();
+            String msg = logic.getSearchedWord(word);
             if(!msg.equals(""))
             {
                 show.vis(msg);
             }
             else
             {
-                ErrorMessage errorMessage3 = new ErrorMessage("Kunne ikke finde " + tekstFelt, "Fejl");
+                ErrorMessage errorMessage3 = new ErrorMessage("Kunne ikke finde " + word, "Fejl");
             }
         });
 
