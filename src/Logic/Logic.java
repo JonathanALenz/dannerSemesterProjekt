@@ -4,6 +4,7 @@ import Database.Shovel;
 import Database.SingleCellText;
 import javafx.scene.control.CheckBox;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -163,22 +164,30 @@ public class Logic
     {
 
         String msg = "";
+        List<TypeogCat> tocs = new ArrayList<>();
 
         if (v_generelt.isSelected())
         {
+            //TEST KODE
+//            tocs.add(new TypeogCat(0, 8));
+//            tocs.add(new TypeogCat(7,8));
             msg += "VOLD\n\n" + getCellTextFormat(0, 8) + "\n\n" +
                     "VOLDENS 5 FORMER(ofte er alle 5 former tilstede):\n\n" + getCellText(7, 8) + printDash(118);
         }
         if (v_sex.isSelected())
         {
+            //TEST KODE
+//            tocs.add(new TypeogCat(0,11));
+//            tocs.add(new TypeogCat(1, 11));
+//            tocs.add(new TypeogCat(2,11));
             msg += "SEKSUEL VOLD\n\nGENERELT:\n\n" + getCellTextFormat(0,11) +
                     "EKSEMPLER PÅ SVAR:\n\n" + getCellText(1, 11)  +
-                    "HENVISNGER:\n\n" + getCellText(2, 11) + printDash(118);
+                    "HENVISNINGER:\n\n" + getCellText(2, 11) + printDash(118);
         }
 
         if (v_psykisk.isSelected())
         {
-            msg += "PSYGISK VOLD\n\nGENERELT:\n\n" + getCellTextFormat(0,10) +
+            msg += "PSYKISK VOLD\n\nGENERELT:\n\n" + getCellTextFormat(0,10) +
                     "EKSEMPLER PÅ SVAR:\n\n" + getCellText(1,10) + printDash(118);
         }
         if (v_fysisk.isSelected())
@@ -290,8 +299,42 @@ public class Logic
                     "EKSEMPLER PÅ SVAR:\n\n" + getCellText(1,18) +
                     "HENVISNINGER:\n\n" + getCellText(2,18) + printDash(118);
         }
+        //TEST KODE
+//        msg = getCellTextFormatWODB(shovel.test(tocs));
+
         return msg;
     }
+
+    //TEST KODE
+    public String getCellTextFormatWODB(List<SingleCellText> scts)
+    {
+        String txt = "";
+        String nyTxt = "";
+
+        for (SingleCellText sct: scts)
+        {
+            txt += sct.getText();
+
+            //Opretter et String array med alle elementer fra den hentede tekst uden mellemrum.
+            String[] splittedString = txt.split(" ");
+
+            //Løkken finder #n tegnene, erstatter dem med en ny linje. Ellers indsætter den et mellemrum.
+            for (int i = 0; i < splittedString.length; i++)
+            {
+                if(splittedString[i].equals("#n"))
+                {
+                    nyTxt += "\n";
+                }
+                else
+                {
+                    nyTxt += splittedString[i] + " ";
+                }
+            }
+        }
+        nyTxt += "OVERSKRIFT\n\n";
+        return nyTxt;
+    }
+
 
     public String printDash(int antal)
     {

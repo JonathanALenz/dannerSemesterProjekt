@@ -1,7 +1,9 @@
 package Database;
 
+import Logic.TypeogCat;
 import Logic.User;
 
+import javax.xml.transform.Result;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -58,9 +60,7 @@ public class Shovel
             System.out.println("Couldn't connect to db");
             e.printStackTrace();
         }
-
         return singleCellTexts;
-
     }
 
     public List<SingleCellText> dbShovel (int typeID)
@@ -203,6 +203,7 @@ public class Shovel
             ResultSet rs = pstmt.executeQuery();
             rs.next();
 
+
             if(rs!=null)
             {
                 if(rs.getString("user_name").equalsIgnoreCase(userName))
@@ -252,5 +253,53 @@ public class Shovel
             System.out.println("SQL fejl.");
             e.printStackTrace();
         }
+    }
+
+    //funktion som henter alt i et træk, frem et kald for hver afkrydsning TEST
+    public List<SingleCellText> test(List<TypeogCat> tocs)
+    {
+        List<SingleCellText> scts = new ArrayList<>();
+        String sqlQuery = "SELECT * FROM sql11172288.text_description WHERE ";
+
+        try
+        {
+            Class.forName(jdbcDriver);
+            Connection conn = DriverManager.getConnection(dbURL, user, pass);
+
+            Statement stmt = conn.createStatement();
+
+            if(tocs.size() > 1)
+            {
+                sqlQuery += "(cat_id = " + tocs.get(0).getCatID() + " and " + "type_id = " + tocs.get(0).getTypeID() + ")";
+
+                for (int i = 1; i < tocs.size(); i++)
+                {
+                    sqlQuery += " OR (cat_id = " + tocs.get(i).getCatID() + " and " + "type_id = " + tocs.get(i).getTypeID() + ")";
+                }
+
+            }
+
+            ResultSet rs = stmt.executeQuery(sqlQuery);
+            rs.first();
+            System.out.println(rs.getString("actual_text"));
+
+            while(rs.next())
+            {
+                scts.add(new SingleCellText(rs.getInt("type_id"), rs.getInt("cat_id"),
+                        rs.getString("actual_text")));
+            }
+
+
+        }
+        catch (ClassNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+        return scts;
     }
 }
