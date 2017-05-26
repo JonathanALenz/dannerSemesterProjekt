@@ -29,20 +29,20 @@ public class Login
         FrontPage frontPage = new FrontPage();
 
         //opretter elementer samt placere dem i forhold til hinanden med (.setConstraints)
-        Label label_user = new Label("User");
+        Label label_user = new Label("Bruger");
         layout_login.setConstraints(label_user,0,0);
 
-        Label label_password = new Label("Password");
+        Label label_password = new Label("Kodeord");
         layout_login.setConstraints(label_password,0,1);
 
         TextField textField_user = new TextField();
         layout_login.setConstraints(textField_user,1,0);
-        textField_user.setPromptText("Username");
+        textField_user.setPromptText("Brugernavn");
 
         PasswordField textField_password = new PasswordField();
         layout_login.setConstraints(textField_password,1,1);
 
-        textField_password.setPromptText("Password");
+        textField_password.setPromptText("Kodeord");
 
         Button button_login = new Button("Login");
         layout_login.setConstraints(button_login,1,2);
@@ -70,7 +70,7 @@ public class Login
             }
             else
             {
-                ErrorMessage errorMessage = new ErrorMessage("Forkert bruger eller passwrod. Prøv igen.", "Fejl");
+                ErrorMessage errorMessage = new ErrorMessage("Forkert bruger eller password. Prøv igen.", "Fejl");
             }
         });
 

@@ -32,13 +32,13 @@ public class OpretBruger
         TextField textField_brugernavn = new TextField();
         layout.setConstraints(textField_brugernavn,1,0);
 
-        Label label_password = new Label("Password: ");
+        Label label_password = new Label("Kodeord: ");
         layout.setConstraints(label_password,0,1);
 
         PasswordField passwordField_password = new PasswordField();
         layout.setConstraints(passwordField_password, 1,1);
 
-        Label label_gentag_password = new Label("Gentag password: ");
+        Label label_gentag_password = new Label("Gentag kodeord: ");
         layout.setConstraints(label_gentag_password,0,2);
 
         PasswordField passwordField_gentag_password = new PasswordField();
@@ -94,7 +94,7 @@ public class OpretBruger
         });
 
 
-        Button button_return = new Button("Return");
+        Button button_return = new Button("Tilbage");
         layout.setConstraints(button_return,0,4);
         button_return.setOnAction(e->window.close());
 
