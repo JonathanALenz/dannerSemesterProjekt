@@ -11,7 +11,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Shovel
+public class Shovel extends ErrorMessage
 {
     /*  Shovel er laget tættest på vores DB.
      *  Bruger JDBC driver til at forbinde med vores mysql database,
@@ -56,17 +56,19 @@ public class Shovel
         }
         catch (ClassNotFoundException e)
         {
-            ErrorMessage errorMessage1 = new ErrorMessage("Systemfejl: Kunne ikke loade driver", "Fejl");
+            wrongCredentials("Systemfejl: Kunne ikke loade driver", "Fejl");
             System.out.println("Couldn't load driver");
+            e.printStackTrace();
         }
         catch (CommunicationsException e)
         {
-            ErrorMessage errorMessage3 = new ErrorMessage("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
+            wrongCredentials("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
+            e.printStackTrace();
+
         }
         catch (SQLException e)
         {
-            ErrorMessage errorMessage2 = new ErrorMessage("Systemfejl: Kunne ikke få forbindelse til databasen", "Fejl");
-            System.out.println("Couldn't connect to db");
+            System.out.println("SQLException");
             e.printStackTrace();
         }
 
@@ -100,17 +102,19 @@ public class Shovel
         }
         catch (ClassNotFoundException e)
         {
-            ErrorMessage errorMessage1 = new ErrorMessage("Systemfejl: Kunne ikke loade driver", "Fejl");
+            wrongCredentials("Systemfejl: Kunne ikke loade driver", "Fejl");
             System.out.println("Couldn't load driver");
+            e.printStackTrace();
         }
         catch (CommunicationsException e)
         {
-            ErrorMessage errorMessage3 = new ErrorMessage("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
+            wrongCredentials("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
+            e.printStackTrace();
+
         }
         catch (SQLException e)
         {
-            ErrorMessage errorMessage2 = new ErrorMessage("Systemfejl: Kunne ikke få forbindelse til databasen", "Fejl");
-            System.out.println("Couldn't connect to db");
+            System.out.println("SQLException");
             e.printStackTrace();
         }
 
@@ -152,17 +156,19 @@ public class Shovel
         }
         catch (ClassNotFoundException e)
         {
-            ErrorMessage errorMessage1 = new ErrorMessage("Systemfejl: Kunne ikke loade driver", "Fejl");
+            wrongCredentials("Systemfejl: Kunne ikke loade driver", "Fejl");
             System.out.println("Couldn't load driver");
+            e.printStackTrace();
         }
         catch (CommunicationsException e)
         {
-            ErrorMessage errorMessage3 = new ErrorMessage("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
+            wrongCredentials("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
+            e.printStackTrace();
+
         }
         catch (SQLException e)
         {
-            ErrorMessage errorMessage2 = new ErrorMessage("Systemfejl: Kunne ikke få forbindelse til databasen", "Fejl");
-            System.out.println("Couldn't connect to db");
+            System.out.println("SQLException");
             e.printStackTrace();
         }
         return singleCellTexts;
@@ -198,17 +204,19 @@ public class Shovel
         }
         catch (ClassNotFoundException e)
         {
-            ErrorMessage errorMessage1 = new ErrorMessage("Systemfejl: Kunne ikke loade driver", "Fejl");
+            wrongCredentials("Systemfejl: Kunne ikke loade driver", "Fejl");
             System.out.println("Couldn't load driver");
+            e.printStackTrace();
         }
         catch (CommunicationsException e)
         {
-            ErrorMessage errorMessage3 = new ErrorMessage("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
+            wrongCredentials("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
+            e.printStackTrace();
+
         }
         catch (SQLException e)
         {
-            ErrorMessage errorMessage2 = new ErrorMessage("Systemfejl: Kunne ikke få forbindelse til databasen", "Fejl");
-            System.out.println("Couldn't connect to db");
+            System.out.println("SQLException");
             e.printStackTrace();
         }
         return loginUser;
@@ -245,17 +253,19 @@ public class Shovel
         }
         catch (ClassNotFoundException e)
         {
-            ErrorMessage errorMessage1 = new ErrorMessage("Systemfejl: Kunne ikke loade driver", "Fejl");
+            wrongCredentials("Systemfejl: Kunne ikke loade driver", "Fejl");
             System.out.println("Couldn't load driver");
+            e.printStackTrace();
         }
         catch (CommunicationsException e)
         {
-            ErrorMessage errorMessage3 = new ErrorMessage("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
+            wrongCredentials("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
+            e.printStackTrace();
+
         }
         catch (SQLException e)
         {
-            ErrorMessage errorMessage2 = new ErrorMessage("Systemfejl: Kunne ikke få forbindelse til databasen", "Fejl");
-            System.out.println("Couldn't connect to db");
+            System.out.println("SQLException");
             e.printStackTrace();
         }
         return userExist;
@@ -279,68 +289,72 @@ public class Shovel
         }
         catch (ClassNotFoundException e)
         {
-            ErrorMessage errorMessage1 = new ErrorMessage("Systemfejl: Kunne ikke loade driver", "Fejl");
+            wrongCredentials("Systemfejl: Kunne ikke loade driver", "Fejl");
             System.out.println("Couldn't load driver");
+            e.printStackTrace();
         }
         catch (CommunicationsException e)
         {
-            ErrorMessage errorMessage3 = new ErrorMessage("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
+            wrongCredentials("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
+            e.printStackTrace();
+
         }
         catch (SQLException e)
         {
-            ErrorMessage errorMessage2 = new ErrorMessage("Systemfejl: Kunne ikke få forbindelse til databasen", "Fejl");
-            System.out.println("Couldn't connect to db");
+            System.out.println("SQLException");
             e.printStackTrace();
         }
     }
 
     //funktion som henter alt i et træk, frem et kald for hver afkrydsning TEST
-    public List<SingleCellText> test(List<TypeogCat> tocs)
-    {
-        List<SingleCellText> scts = new ArrayList<>();
-        String sqlQuery = "SELECT * FROM sql11172288.text_description WHERE ";
-
-        try
-        {
-            Class.forName(jdbcDriver);
-            Connection conn = DriverManager.getConnection(dbURL, user, pass);
-            Statement stmt = conn.createStatement();
-            sqlQuery += "(cat_id = " + tocs.get(0).getCatID() + " and " + "type_id = " + tocs.get(0).getTypeID() + ")";
-
-            if(tocs.size() > 1)
-            {
-                for (int i = 1; i < tocs.size(); i++)
-                {
-                    sqlQuery += " OR (cat_id = " + tocs.get(i).getCatID() + " and " + "type_id = " + tocs.get(i).getTypeID() + ")";
-                }
-
-            }
-            ResultSet rs = stmt.executeQuery(sqlQuery);
-            rs.first();
-            System.out.println(rs.getString("actual_text"));
-
-            while(rs.next())
-            {
-                scts.add(new SingleCellText(rs.getInt("type_id"), rs.getInt("cat_id"),
-                        rs.getString("actual_text")));
-            }
-        }
-        catch (ClassNotFoundException e)
-        {
-            ErrorMessage errorMessage1 = new ErrorMessage("Systemfejl: Kunne ikke loade driver", "Fejl");
-            System.out.println("Couldn't load driver");
-        }
-        catch (CommunicationsException e)
-        {
-            ErrorMessage errorMessage3 = new ErrorMessage("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
-        }
-        catch (SQLException e)
-        {
-            ErrorMessage errorMessage2 = new ErrorMessage("Systemfejl: Kunne ikke få forbindelse til databasen", "Fejl");
-            System.out.println("Couldn't connect to db");
-            e.printStackTrace();
-        }
-
-        return scts;
-    }
+//    public List<SingleCellText> test(List<TypeogCat> tocs)
+//    {
+//        List<SingleCellText> scts = new ArrayList<>();
+//        String sqlQuery = "SELECT * FROM sql11172288.text_description WHERE ";
+//
+//        try
+//        {
+//            Class.forName(jdbcDriver);
+//            Connection conn = DriverManager.getConnection(dbURL, user, pass);
+//            Statement stmt = conn.createStatement();
+//            sqlQuery += "(cat_id = " + tocs.get(0).getCatID() + " and " + "type_id = " + tocs.get(0).getTypeID() + ")";
+//
+//            if(tocs.size() > 1)
+//            {
+//                for (int i = 1; i < tocs.size(); i++)
+//                {
+//                    sqlQuery += " OR (cat_id = " + tocs.get(i).getCatID() + " and " + "type_id = " + tocs.get(i).getTypeID() + ")";
+//                }
+//
+//            }
+//            ResultSet rs = stmt.executeQuery(sqlQuery);
+//            rs.first();
+//            System.out.println(rs.getString("actual_text"));
+//
+//            while(rs.next())
+//            {
+//                scts.add(new SingleCellText(rs.getInt("type_id"), rs.getInt("cat_id"),
+//                        rs.getString("actual_text")));
+//            }
+//        }
+//        catch (ClassNotFoundException e)
+//        {
+//            wrongCredentials("Systemfejl: Kunne ikke loade driver", "Fejl");
+//            System.out.println("Couldn't load driver");
+//            e.printStackTrace();
+//        }
+//        catch (CommunicationsException e)
+//        {
+//            wrongCredentials("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
+//            e.printStackTrace();
+//
+//        }
+//        catch (SQLException e)
+//        {
+//            System.out.println("SQLException");
+//            e.printStackTrace();
+//        }
+//
+//        return scts;
+//    }
 }

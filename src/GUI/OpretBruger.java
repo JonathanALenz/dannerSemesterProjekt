@@ -10,7 +10,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import Logic.*;
 
-public class OpretBruger
+public class OpretBruger extends ErrorMessage
 {
 
     public void createUser(Logic logic)
@@ -74,22 +74,26 @@ public class OpretBruger
                         }
                         else
                         {
-                            ErrorMessage errorMessage2 = new ErrorMessage("Kodeord skal være ens.", "Fejl");
+                            wrongCredentials("Kodeord skal være ens.", "Fejl");
+//                            ErrorMessage errorMessage2 = new ErrorMessage("Kodeord skal være ens.", "Fejl");
                         }
                     }
                     else
                     {
-                        ErrorMessage errorMessage3 = new ErrorMessage("Brugernavn findes allerede, vælg et andet.", "Fejl");
+                        wrongCredentials("Brugernavn findes allerede, vælg et andet.", "Fejl");
+//                        ErrorMessage errorMessage3 = new ErrorMessage("Brugernavn findes allerede, vælg et andet.", "Fejl");
                     }
                 }
                 else
                 {
-                    ErrorMessage errorMessage3 = new ErrorMessage("Kodeord må ikke være tomt.", "Fejl");
+                    wrongCredentials("Kodeord må ikke være tomt.", "Fejl");
+//                    ErrorMessage errorMessage3 = new ErrorMessage("Kodeord må ikke være tomt.", "Fejl");
                 }
             }
             else
             {
-                ErrorMessage errorMessage4 =new ErrorMessage("Brugernavn må ikke være tomt.","Fejl");
+                wrongCredentials("Brugernavn må ikke være tomt.","Fejl");
+//                ErrorMessage errorMessage4 =new ErrorMessage("Brugernavn må ikke være tomt.","Fejl");
             }
         });
 

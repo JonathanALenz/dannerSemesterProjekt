@@ -1,5 +1,6 @@
 package GUI;
 
+import com.sun.jmx.snmp.EnumRowStatus;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -10,12 +11,14 @@ import javafx.stage.Stage;
 
 public class ErrorMessage
 {
+    public ErrorMessage(){}
+
     public ErrorMessage(String message, String title)
     {
         wrongCredentials(message, title);
     }
 
-    private void wrongCredentials(String message, String title)
+    public void wrongCredentials(String message, String title)
     {
         Stage window = new Stage();
         GridPane layout = new GridPane();

@@ -12,7 +12,7 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import Logic.*;
 
-public class FrontPage
+public class FrontPage extends ErrorMessage
 {
 
     //Den primære GUI klasse, der indeholder alt fra vores forside.
@@ -144,7 +144,7 @@ public class FrontPage
             }
             else
             {
-                ErrorMessage errorMessage3 = new ErrorMessage("Kunne ikke finde " + word, "Fejl");
+                wrongCredentials("Kunne ikke finde " + word, "Fejl");
             }
         });
 

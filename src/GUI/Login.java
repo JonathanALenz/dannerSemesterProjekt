@@ -10,10 +10,10 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import Logic.*;
 
-public class Login
+public class Login extends ErrorMessage
 {
 
-    public void first_login (Stage primaryStage)
+    public void first_login(Stage primaryStage)
     {
         Logic logic = new Logic();
         //Bruger gridpane som layout for at alle felter står ved siden af og under hinanden.
@@ -70,7 +70,7 @@ public class Login
             }
             else
             {
-                ErrorMessage errorMessage = new ErrorMessage("Forkert bruger eller password. Prøv igen.", "Fejl");
+                wrongCredentials("Forkert bruger eller password. Prøv igen.", "Fejl");
             }
         });
 
