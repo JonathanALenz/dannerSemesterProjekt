@@ -304,9 +304,7 @@ public class Shovel
         {
             Class.forName(jdbcDriver);
             Connection conn = DriverManager.getConnection(dbURL, user, pass);
-
             Statement stmt = conn.createStatement();
-
             sqlQuery += "(cat_id = " + tocs.get(0).getCatID() + " and " + "type_id = " + tocs.get(0).getTypeID() + ")";
 
             if(tocs.size() > 1)
@@ -317,7 +315,6 @@ public class Shovel
                 }
 
             }
-
             ResultSet rs = stmt.executeQuery(sqlQuery);
             rs.first();
             System.out.println(rs.getString("actual_text"));
@@ -327,8 +324,6 @@ public class Shovel
                 scts.add(new SingleCellText(rs.getInt("type_id"), rs.getInt("cat_id"),
                         rs.getString("actual_text")));
             }
-
-
         }
         catch (ClassNotFoundException e)
         {

@@ -70,7 +70,7 @@ public class Login
             }
             else
             {
-                ErrorMessage errorMessage = new ErrorMessage("Forkert login. Prøv igen.", "Fejl");
+                ErrorMessage errorMessage = new ErrorMessage("Forkert bruger eller passwrod. Prøv igen.", "Fejl");
             }
         });
 

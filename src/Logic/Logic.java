@@ -187,6 +187,8 @@ public class Logic
 
         if (v_psykisk.isSelected())
         {
+//            tocs.add(new TypeogCat(0,10));
+//            tocs.add(new TypeogCat())
             msg += "PSYKISK VOLD\n\nGENERELT:\n\n" + getCellTextFormat(0,10) +
                     "EKSEMPLER PÅ SVAR:\n\n" + getCellText(1,10) + printDash(118);
         }
@@ -300,40 +302,41 @@ public class Logic
                     "HENVISNINGER:\n\n" + getCellText(2,18) + printDash(118);
         }
         //TEST KODE
-//        msg = getCellTextFormatWODB(shovel.test(tocs));
-
+        msg = getCellTextFormatWODB(shovel.test(tocs));
+        //okay. shovel.test returnerer kun 1 gang. Så den burde være fin
+        // getCellTextFormatWODB returnerer dog teksten 2 gange, så der må være et problem der.
         return msg;
-    }
+    }//du går bare amok - hvor var shovel.test igen?
 
     //TEST KODE
-//    public String getCellTextFormatWODB(List<SingleCellText> scts)
-//    {
-//        String txt = "";
-//        String nyTxt = "";
-//
-//        for (SingleCellText sct: scts)
-//        {
-//            txt += sct.getText();
-//
-//            //Opretter et String array med alle elementer fra den hentede tekst uden mellemrum.
-//            String[] splittedString = txt.split(" ");
-//
-//            //Løkken finder #n tegnene, erstatter dem med en ny linje. Ellers indsætter den et mellemrum.
-//            for (int i = 0; i < splittedString.length; i++)
-//            {
-//                if(splittedString[i].equals("#n"))
-//                {
-//                    nyTxt += "\n";
-//                }
-//                else
-//                {
-//                    nyTxt += splittedString[i] + " ";
-//                }
-//            }
-//        }
-//        nyTxt += "OVERSKRIFT\n\n";
-//        return nyTxt;
-//    }
+    public String getCellTextFormatWODB(List<SingleCellText> scts)
+    {
+        String txt = "";
+        String nyTxt = "";
+
+        for (SingleCellText sct: scts)
+        {
+            txt = sct.getText();
+
+            //Opretter et String array med alle elementer fra den hentede tekst uden mellemrum.
+            String[] splittedString = txt.split(" ");
+
+            //Løkken finder #n tegnene, erstatter dem med en ny linje. Ellers indsætter den et mellemrum.
+            for (int i = 0; i < splittedString.length; i++)
+            {
+                if(splittedString[i].equals("#n"))
+                {
+                    nyTxt += "\n";
+                }
+                else
+                {
+                    nyTxt += splittedString[i] + " ";
+                }
+            }
+        }
+        nyTxt += "OVERSKRIFT\n\n";
+        return nyTxt;
+    }
 
 
     public String printDash(int antal)
