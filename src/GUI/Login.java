@@ -10,7 +10,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import Logic.*;
 
-public class Login extends ErrorMessage
+public class Login
 {
 
     public void first_login(Stage primaryStage)
@@ -70,7 +70,7 @@ public class Login extends ErrorMessage
             }
             else
             {
-                wrongCredentials("Forkert bruger eller password. Prøv igen.", "Fejl");
+                ErrorMessage errorMessage = new ErrorMessage("Forkert bruger eller password. Prøv igen.", "Fejl");
             }
         });
 

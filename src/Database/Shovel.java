@@ -11,7 +11,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Shovel extends ErrorMessage
+public class Shovel
 {
     /*  Shovel er laget tættest på vores DB.
      *  Bruger JDBC driver til at forbinde med vores mysql database,
@@ -56,13 +56,13 @@ public class Shovel extends ErrorMessage
         }
         catch (ClassNotFoundException e)
         {
-            wrongCredentials("Systemfejl: Kunne ikke loade driver", "Fejl");
+            ErrorMessage errorMessage = new ErrorMessage("Systemfejl: Kunne ikke loade driver", "Fejl");
             System.out.println("Couldn't load driver");
             e.printStackTrace();
         }
         catch (CommunicationsException e)
         {
-            wrongCredentials("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
+            ErrorMessage errorMessage = new ErrorMessage("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
             e.printStackTrace();
 
         }
@@ -102,13 +102,13 @@ public class Shovel extends ErrorMessage
         }
         catch (ClassNotFoundException e)
         {
-            wrongCredentials("Systemfejl: Kunne ikke loade driver", "Fejl");
+            ErrorMessage errorMessage = new ErrorMessage("Systemfejl: Kunne ikke loade driver", "Fejl");
             System.out.println("Couldn't load driver");
             e.printStackTrace();
         }
         catch (CommunicationsException e)
         {
-            wrongCredentials("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
+            ErrorMessage errorMessage = new ErrorMessage("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
             e.printStackTrace();
 
         }
@@ -156,13 +156,13 @@ public class Shovel extends ErrorMessage
         }
         catch (ClassNotFoundException e)
         {
-            wrongCredentials("Systemfejl: Kunne ikke loade driver", "Fejl");
+            ErrorMessage errorMessage = new ErrorMessage("Systemfejl: Kunne ikke loade driver", "Fejl");
             System.out.println("Couldn't load driver");
             e.printStackTrace();
         }
         catch (CommunicationsException e)
         {
-            wrongCredentials("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
+            ErrorMessage errorMessage = new ErrorMessage("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
             e.printStackTrace();
 
         }
@@ -204,13 +204,13 @@ public class Shovel extends ErrorMessage
         }
         catch (ClassNotFoundException e)
         {
-            wrongCredentials("Systemfejl: Kunne ikke loade driver", "Fejl");
+            ErrorMessage errorMessage = new ErrorMessage("Systemfejl: Kunne ikke loade driver", "Fejl");
             System.out.println("Couldn't load driver");
             e.printStackTrace();
         }
         catch (CommunicationsException e)
         {
-            wrongCredentials("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
+            ErrorMessage errorMessage = new ErrorMessage("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
             e.printStackTrace();
 
         }
@@ -253,13 +253,13 @@ public class Shovel extends ErrorMessage
         }
         catch (ClassNotFoundException e)
         {
-            wrongCredentials("Systemfejl: Kunne ikke loade driver", "Fejl");
+            ErrorMessage errorMessage = new ErrorMessage("Systemfejl: Kunne ikke loade driver", "Fejl");
             System.out.println("Couldn't load driver");
             e.printStackTrace();
         }
         catch (CommunicationsException e)
         {
-            wrongCredentials("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
+            ErrorMessage errorMessage = new ErrorMessage("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
             e.printStackTrace();
 
         }
@@ -289,13 +289,13 @@ public class Shovel extends ErrorMessage
         }
         catch (ClassNotFoundException e)
         {
-            wrongCredentials("Systemfejl: Kunne ikke loade driver", "Fejl");
+            ErrorMessage errorMessage = new ErrorMessage("Systemfejl: Kunne ikke loade driver", "Fejl");
             System.out.println("Couldn't load driver");
             e.printStackTrace();
         }
         catch (CommunicationsException e)
         {
-            wrongCredentials("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
+            ErrorMessage errorMessage = new ErrorMessage("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
             e.printStackTrace();
 
         }
