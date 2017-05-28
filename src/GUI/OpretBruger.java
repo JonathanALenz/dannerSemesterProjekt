@@ -2,7 +2,6 @@ package GUI;
 
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
@@ -68,28 +67,28 @@ public class OpretBruger
                         {
                             logic.createNewUser(textField_brugernavn.getText(), passwordField_password.getText(),
                                     choiceBox.getValue());
-                            ErrorMessage errorMessage1 = new ErrorMessage(textField_brugernavn.getText() + " " +
+                            NotificationMessage notificationMessage1 = new NotificationMessage(textField_brugernavn.getText() + " " +
                                     "er nu oprettet som " + choiceBox.getValue(), "Ny bruger");
                             window.close();
                         }
                         else
                         {
-                            ErrorMessage errorMessage = new ErrorMessage("Kodeord skal være ens.", "Fejl");
+                            NotificationMessage notificationMessage = new NotificationMessage("Kodeord skal være ens.", "Fejl");
                         }
                     }
                     else
                     {
-                        ErrorMessage errorMessage = new ErrorMessage("Brugernavn findes allerede, vælg et andet.", "Fejl");
+                        NotificationMessage notificationMessage = new NotificationMessage("Brugernavn findes allerede, vælg et andet.", "Fejl");
                     }
                 }
                 else
                 {
-                    ErrorMessage errorMessage3 = new ErrorMessage("Kodeord må ikke være tomt.", "Fejl");
+                    NotificationMessage notificationMessage3 = new NotificationMessage("Kodeord må ikke være tomt.", "Fejl");
                 }
             }
             else
             {
-                ErrorMessage errorMessage4 =new ErrorMessage("Brugernavn må ikke være tomt.","Fejl");
+                NotificationMessage notificationMessage4 =new NotificationMessage("Brugernavn må ikke være tomt.","Fejl");
             }
         });
 

@@ -9,11 +9,11 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public class ErrorMessage
+public class NotificationMessage
 {
-    public ErrorMessage(){}
+    public NotificationMessage(){}
 
-    public ErrorMessage(String message, String title)
+    public NotificationMessage(String message, String title)
     {
         wrongCredentials(message, title);
     }

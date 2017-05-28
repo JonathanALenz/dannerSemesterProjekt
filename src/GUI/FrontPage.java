@@ -144,7 +144,7 @@ public class FrontPage
             }
             else
             {
-                ErrorMessage errorMessage = new ErrorMessage("Kunne ikke finde " + word, "Fejl");
+                NotificationMessage notificationMessage = new NotificationMessage("Kunne ikke finde " + word, "Fejl");
             }
         });
 

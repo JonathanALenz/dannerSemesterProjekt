@@ -1,12 +1,9 @@
 package Database;
 
-import GUI.ErrorMessage;
-import Logic.TypeogCat;
+import GUI.NotificationMessage;
 import Logic.User;
 import com.mysql.jdbc.CommunicationsException;
 
-import javax.xml.transform.Result;
-import java.net.UnknownHostException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,13 +53,13 @@ public class Shovel
         }
         catch (ClassNotFoundException e)
         {
-            ErrorMessage errorMessage = new ErrorMessage("Systemfejl: Kunne ikke loade driver", "Fejl");
+            NotificationMessage notificationMessage = new NotificationMessage("Systemfejl: Kunne ikke loade driver", "Fejl");
             System.out.println("Couldn't load driver");
             e.printStackTrace();
         }
         catch (CommunicationsException e)
         {
-            ErrorMessage errorMessage = new ErrorMessage("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
+            NotificationMessage notificationMessage = new NotificationMessage("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
             e.printStackTrace();
 
         }
@@ -102,13 +99,13 @@ public class Shovel
         }
         catch (ClassNotFoundException e)
         {
-            ErrorMessage errorMessage = new ErrorMessage("Systemfejl: Kunne ikke loade driver", "Fejl");
+            NotificationMessage notificationMessage = new NotificationMessage("Systemfejl: Kunne ikke loade driver", "Fejl");
             System.out.println("Couldn't load driver");
             e.printStackTrace();
         }
         catch (CommunicationsException e)
         {
-            ErrorMessage errorMessage = new ErrorMessage("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
+            NotificationMessage notificationMessage = new NotificationMessage("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
             e.printStackTrace();
 
         }
@@ -156,13 +153,13 @@ public class Shovel
         }
         catch (ClassNotFoundException e)
         {
-            ErrorMessage errorMessage = new ErrorMessage("Systemfejl: Kunne ikke loade driver", "Fejl");
+            NotificationMessage notificationMessage = new NotificationMessage("Systemfejl: Kunne ikke loade driver", "Fejl");
             System.out.println("Couldn't load driver");
             e.printStackTrace();
         }
         catch (CommunicationsException e)
         {
-            ErrorMessage errorMessage = new ErrorMessage("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
+            NotificationMessage notificationMessage = new NotificationMessage("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
             e.printStackTrace();
 
         }
@@ -204,13 +201,13 @@ public class Shovel
         }
         catch (ClassNotFoundException e)
         {
-            ErrorMessage errorMessage = new ErrorMessage("Systemfejl: Kunne ikke loade driver", "Fejl");
+            NotificationMessage notificationMessage = new NotificationMessage("Systemfejl: Kunne ikke loade driver", "Fejl");
             System.out.println("Couldn't load driver");
             e.printStackTrace();
         }
         catch (CommunicationsException e)
         {
-            ErrorMessage errorMessage = new ErrorMessage("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
+            NotificationMessage notificationMessage = new NotificationMessage("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
             e.printStackTrace();
 
         }
@@ -253,13 +250,13 @@ public class Shovel
         }
         catch (ClassNotFoundException e)
         {
-            ErrorMessage errorMessage = new ErrorMessage("Systemfejl: Kunne ikke loade driver", "Fejl");
+            NotificationMessage notificationMessage = new NotificationMessage("Systemfejl: Kunne ikke loade driver", "Fejl");
             System.out.println("Couldn't load driver");
             e.printStackTrace();
         }
         catch (CommunicationsException e)
         {
-            ErrorMessage errorMessage = new ErrorMessage("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
+            NotificationMessage notificationMessage = new NotificationMessage("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
             e.printStackTrace();
 
         }
@@ -289,13 +286,13 @@ public class Shovel
         }
         catch (ClassNotFoundException e)
         {
-            ErrorMessage errorMessage = new ErrorMessage("Systemfejl: Kunne ikke loade driver", "Fejl");
+            NotificationMessage notificationMessage = new NotificationMessage("Systemfejl: Kunne ikke loade driver", "Fejl");
             System.out.println("Couldn't load driver");
             e.printStackTrace();
         }
         catch (CommunicationsException e)
         {
-            ErrorMessage errorMessage = new ErrorMessage("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
+            NotificationMessage notificationMessage = new NotificationMessage("Systemfejl: Kunne ikke få forbindelse til internettet","Fejl");
             e.printStackTrace();
 
         }
