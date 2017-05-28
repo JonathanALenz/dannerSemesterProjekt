@@ -67,36 +67,39 @@ public class OpretBruger
                         {
                             logic.createNewUser(textField_brugernavn.getText(), passwordField_password.getText(),
                                     choiceBox.getValue());
-                            NotificationMessage notificationMessage1 = new NotificationMessage(textField_brugernavn.getText() + " " +
+                            NotificationMessage notificationMessage1 = new NotificationMessage
+                                    (textField_brugernavn.getText() + " " +
                                     "er nu oprettet som " + choiceBox.getValue(), "Ny bruger");
                             window.close();
                         }
                         else
                         {
-                            NotificationMessage notificationMessage = new NotificationMessage("Kodeord skal være ens.", "Fejl");
+                            NotificationMessage notificationMessage = new NotificationMessage
+                                    ("Kodeord skal være ens.", "Fejl");
                         }
                     }
                     else
                     {
-                        NotificationMessage notificationMessage = new NotificationMessage("Brugernavn findes allerede, vælg et andet.", "Fejl");
+                        NotificationMessage notificationMessage = new NotificationMessage
+                                ("Brugernavn findes allerede, vælg et andet.", "Fejl");
                     }
                 }
                 else
                 {
-                    NotificationMessage notificationMessage3 = new NotificationMessage("Kodeord må ikke være tomt.", "Fejl");
+                    NotificationMessage notificationMessage3 = new NotificationMessage
+                            ("Kodeord må ikke være tomt.", "Fejl");
                 }
             }
             else
             {
-                NotificationMessage notificationMessage4 =new NotificationMessage("Brugernavn må ikke være tomt.","Fejl");
+                NotificationMessage notificationMessage4 =new NotificationMessage
+                        ("Brugernavn må ikke være tomt.","Fejl");
             }
         });
-
 
         Button button_return = new Button("Tilbage");
         layout.setConstraints(button_return,0,4);
         button_return.setOnAction(e->window.close());
-
 
         layout.getChildren().addAll(label_brugernavn, label_gentag_password, label_level, label_password,
                 textField_brugernavn, passwordField_password, passwordField_gentag_password, choiceBox,
@@ -105,6 +108,5 @@ public class OpretBruger
         Scene scene = new Scene(layout);
         window.setScene(scene);
         window.showAndWait();
-
     }
 }

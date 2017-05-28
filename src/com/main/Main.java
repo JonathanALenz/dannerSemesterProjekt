@@ -13,7 +13,6 @@ public class Main extends Application {
         login.first_login(primaryStage);
     }
 
-
     public static void main(String[] args) {
         launch(args);
     }

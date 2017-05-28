@@ -25,8 +25,8 @@ public class FrontPage
         show = new Show();
     }
 
-    //åbner programmet og tar parameteren "user_level" som bliver brugt under oprettelsen af hovedvinduet (hvis man er
-    // admin kan man se 2 knapper mere her)
+    //åbner programmet og tar parameteren "user_level" som bliver brugt under oprettelsen af hovedvinduet
+    // (hvis man er admin kan man se 2 knapper mere her)
     public void mainProgram(int user_level)
     {
         Stage window = new Stage();
@@ -36,7 +36,8 @@ public class FrontPage
         BorderPane topstuff = new BorderPane();
         BorderPane buttomstuff = new BorderPane();
 
-        //bruger gridpane_middle til alle checkboxe og labels der står over checkboxe og er placeret i borderpanes center
+        //bruger gridpane_middle til alle checkboxe og labels der står
+        //over checkboxe og er placeret i borderpanes center
         GridPane gridpane_middle = new GridPane();
 
         //Alle de HBox'e og VBox'e indeholder vores knapper, søgefelt og de to labels øverst til venstre
@@ -273,11 +274,12 @@ public class FrontPage
             //sender status for alle checkboxer til (option_choosesend)
             String message = logic.optionChosenSend(checkBox_vold_generelt, checkBox_vold_sex, checkBox_vold_psygisk,
                     checkBox_vold_fysisk, checkBox_vold_materiel, checkBox_vold_okonomisk, checkBox_unge_generelt,
-                    checkBox_born_vold_generelt, checkBox_born_vold_VI, checkBox_born_vold_BI, checkBox_venner_skriver,
-                    checkBox_maend_generelt, checkBox_maend_Hjælp_til_udøvere, checkBox_maend_Hjælp_til_ofre,
-                    checkBox_netvaerk_generelt, checkBox_skilsmisse_gen, checkBox_misbrugere_og_psykiske_syge, checkBox_pro_laege,
-                    checkBox_pro_psykolog, checkBox_pro_politi, checkBox_pro_retshjaelp, checkBox_pro_sygehus,
-                    checkBox_pro_oekonomi, checkBox_etniske_kvinder_generelt);
+                    checkBox_born_vold_generelt, checkBox_born_vold_VI, checkBox_born_vold_BI,
+                    checkBox_venner_skriver, checkBox_maend_generelt, checkBox_maend_Hjælp_til_udøvere,
+                    checkBox_maend_Hjælp_til_ofre, checkBox_netvaerk_generelt, checkBox_skilsmisse_gen,
+                    checkBox_misbrugere_og_psykiske_syge, checkBox_pro_laege, checkBox_pro_psykolog,
+                    checkBox_pro_politi, checkBox_pro_retshjaelp, checkBox_pro_sygehus, checkBox_pro_oekonomi,
+                    checkBox_etniske_kvinder_generelt);
             show.vis(message);
         });
 

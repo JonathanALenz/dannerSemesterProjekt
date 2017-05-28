@@ -47,7 +47,6 @@ public class Login
         Button button_login = new Button("Login");
         layout_login.setConstraints(button_login,1,2);
 
-
         //opretter int userlevel som bliver brugt til at se admin status
         int[] user_level = {0};
         button_login.setOnAction(e->
@@ -70,20 +69,17 @@ public class Login
             }
             else
             {
-                NotificationMessage notificationMessage = new NotificationMessage("Forkert bruger eller password. Prøv igen.", "Fejl");
+                NotificationMessage notificationMessage = new NotificationMessage
+                        ("Forkert bruger eller password. Prøv igen.", "Fejl");
             }
         });
 
-
-        layout_login.getChildren().addAll(label_user, label_password, textField_user, textField_password, button_login);
-
+        layout_login.getChildren().addAll(label_user, label_password, textField_user,
+                textField_password, button_login);
 
         primaryStage.setTitle("Login");
         Scene scene_login = new Scene(layout_login);
         primaryStage.setScene(scene_login);
         primaryStage.show();
     }
-
-
 }
-

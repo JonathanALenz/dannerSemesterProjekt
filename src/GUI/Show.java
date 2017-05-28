@@ -8,7 +8,6 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-
 public class Show {
     public void vis(String message) {
 
@@ -32,7 +31,6 @@ public class Show {
         layout.setConstraints(main_body,0,0);
         main_body.setWrapText(true);
 
-
         Button button_return = new Button("Tilbage");
         layout.setConstraints(button_return,0,1);
         layout.setHalignment(button_return, HPos.RIGHT);
@@ -43,7 +41,5 @@ public class Show {
         Scene scene = new Scene(layout);
         window.setScene(scene);
         window.showAndWait();
-
     }
 }
-

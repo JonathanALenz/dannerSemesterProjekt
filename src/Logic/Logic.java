@@ -158,9 +158,9 @@ public class Logic
                                    CheckBox v_materiel, CheckBox v_oekonomi, CheckBox unge, CheckBox bogV_gen,
                                    CheckBox bogV_VI, CheckBox bogV_BI, CheckBox venner_skriver, CheckBox man_gen,
                                    CheckBox mand_udoever, CheckBox mand_ofre, CheckBox netvaerk,
-                                   CheckBox skilsmisser_gen, CheckBox misbrug, CheckBox p_laege, CheckBox p_psykolog,
-                                   CheckBox p_politi, CheckBox p_retshjaelp, CheckBox p_sygehus, CheckBox p_oekonomi,
-                                   CheckBox etniske)
+                                   CheckBox skilsmisser_gen, CheckBox misbrug, CheckBox p_laege,
+                                   CheckBox p_psykolog, CheckBox p_politi, CheckBox p_retshjaelp,
+                                   CheckBox p_sygehus, CheckBox p_oekonomi, CheckBox etniske)
     {
 
         String msg = "";
@@ -174,7 +174,8 @@ public class Logic
 //            tocs.add(new TypeogCat(0, 8));
 //            tocs.add(new TypeogCat(7,8));
             msg += "VOLD\n\n" + getCellTextFormat(0, 8) + "\n\n" +
-                    "VOLDENS 5 FORMER(ofte er alle 5 former tilstede):\n\n" + getCellText(7, 8) + printDash(118);
+                    "VOLDENS 5 FORMER(ofte er alle 5 former tilstede):\n\n" +
+                    getCellText(7, 8) + printDash(118);
         }
         if (v_sex.isSelected())
         {
@@ -197,12 +198,13 @@ public class Logic
         }
         if (v_fysisk.isSelected())
         {
-            msg += "FYSISK VOLD\n\nGENERELT:\n\n" + getCellTextFormat(0,9) + printDash(118);
+            msg += "FYSISK VOLD\n\nGENERELT:\n\n" + getCellTextFormat(0,9) +
+                    printDash(118);
         }
         if (v_materiel.isSelected())
-
         {
-            msg += "MATERIEL VOLD\n\nGENERELT:\n\n" + getCellTextFormat(0,12) + printDash(118);
+            msg += "MATERIEL VOLD\n\nGENERELT:\n\n" + getCellTextFormat(0,12) +
+                    printDash(118);
         }
         if (v_oekonomi.isSelected())
         {
@@ -217,7 +219,8 @@ public class Logic
         }
         if (bogV_gen.isSelected())
         {
-            msg += "BØRN OG VOLD\n\nGENERELT:\n\n" + getCellTextFormat(0,14) + printDash(118);
+            msg += "BØRN OG VOLD\n\nGENERELT:\n\n" + getCellTextFormat(0,14) +
+                    printDash(118);
         }
         if (bogV_VI.isSelected())
         {
@@ -248,8 +251,8 @@ public class Logic
         if (mand_ofre.isSelected())
         {
             msg += "HJÆLP TIL MÆND UDSAT FOR VOLD\n\n" +
-                    "HENVISNINGER(OVERNATNINGSMULIGHEDER & RÅDGIVNING\n\n" + getCellTextFormat(2,7) +
-                    printDash(118);
+                    "HENVISNINGER(OVERNATNINGSMULIGHEDER & RÅDGIVNING\n\n" +
+                    getCellTextFormat(2,7) + printDash(118);
         }
         if (netvaerk.isSelected())
         {
@@ -291,7 +294,8 @@ public class Logic
         }
         if (p_sygehus.isSelected())
         {
-            msg += "PROFESSIONEL HJÆLP: SYGEHUS\n\n" + getCellTextFormat(0,24) + printDash(118);
+            msg += "PROFESSIONEL HJÆLP: SYGEHUS\n\n" + getCellTextFormat(0,24)
+                    + printDash(118);
         }
         if (p_oekonomi.isSelected())
         {
