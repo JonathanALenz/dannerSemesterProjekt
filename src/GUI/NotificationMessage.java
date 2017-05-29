@@ -1,6 +1,5 @@
 package GUI;
 
-import com.sun.jmx.snmp.EnumRowStatus;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -11,16 +10,22 @@ import javafx.stage.Stage;
 
 public class NotificationMessage
 {
+    private Stage window;
+
+    public Stage getWindow() {
+        return window;
+    }
+
     public NotificationMessage(){}
 
     public NotificationMessage(String message, String title)
     {
+        this.window = new Stage();
         wrongCredentials(message, title);
     }
 
     public void wrongCredentials(String message, String title)
     {
-        Stage window = new Stage();
         GridPane layout = new GridPane();
         window.setTitle(title);
 
@@ -34,13 +39,23 @@ public class NotificationMessage
 
         Button button_return = new Button("Return");
         GridPane.setConstraints(button_return,0,1);
+
         button_return.setOnAction(e->window.close());
 
         layout.getChildren().addAll(label_error_msg, button_return);
 
         Scene scene = new Scene(layout, 230, 100);
         window.setScene(scene);
-        window.showAndWait();
-    }
 
+        if (!message.equals("henter...")) {
+            window.showAndWait();
+        }
+        else
+        {
+           window.show();
+        }
+    }
 }
+
+
+

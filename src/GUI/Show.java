@@ -39,6 +39,7 @@ public class Show {
         layout.getChildren().addAll(main_body, button_return);
 
         Scene scene = new Scene(layout);
+
         window.setScene(scene);
         window.showAndWait();
     }

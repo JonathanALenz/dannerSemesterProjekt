@@ -81,7 +81,7 @@ public class OpretBruger
                     else
                     {
                         NotificationMessage notificationMessage = new NotificationMessage
-                                ("Brugernavn findes allerede, vælg et andet.", "Fejl");
+                                ("Brugernavn findes allerede,\nvælg et andet.", "Fejl");
                     }
                 }
                 else

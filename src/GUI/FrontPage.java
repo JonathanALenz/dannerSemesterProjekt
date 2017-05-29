@@ -271,6 +271,7 @@ public class FrontPage
         button_search.setPrefSize(70,40);
         button_search.setOnAction(e->
         {
+            NotificationMessage notificationMessage = new NotificationMessage("henter...", "Henter fra database");
             //sender status for alle checkboxer til (option_choosesend)
             String message = logic.optionChosenSend(checkBox_vold_generelt, checkBox_vold_sex, checkBox_vold_psygisk,
                     checkBox_vold_fysisk, checkBox_vold_materiel, checkBox_vold_okonomisk, checkBox_unge_generelt,
@@ -280,6 +281,7 @@ public class FrontPage
                     checkBox_misbrugere_og_psykiske_syge, checkBox_pro_laege, checkBox_pro_psykolog,
                     checkBox_pro_politi, checkBox_pro_retshjaelp, checkBox_pro_sygehus, checkBox_pro_oekonomi,
                     checkBox_etniske_kvinder_generelt);
+            notificationMessage.getWindow().close();
             show.vis(message);
         });
 
@@ -292,13 +294,11 @@ public class FrontPage
             opretBruger.createUser(logic);
         });
 
-
         Button button_rediger = new Button("Rediger");
         button_rediger.setPrefSize(70,40);
 
         button_rediger.setOnAction(e->
         {
-//            AdminRediger.rediger();
 
         });
 
@@ -331,7 +331,6 @@ public class FrontPage
             checkBox_vold_okonomisk.setSelected(false);
             checkBox_vold_psygisk.setSelected(false);
             checkBox_vold_sex.setSelected(false);
-
         });
 
         //lukker program
