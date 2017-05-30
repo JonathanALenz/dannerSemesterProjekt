@@ -1,7 +1,6 @@
 package Database;
 
 import GUI.NotificationMessage;
-import Logic.User;
 import com.mysql.jdbc.CommunicationsException;
 
 import java.sql.*;

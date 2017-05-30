@@ -1,5 +1,6 @@
 package GUI;
 
+import Database.User;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -16,6 +17,8 @@ public class Login
     public void first_login(Stage primaryStage)
     {
         Logic logic = new Logic();
+        FrontPage frontPage = new FrontPage(logic);
+
         //Bruger gridpane som layout for at alle felter står ved siden af og under hinanden.
         GridPane layout_login = new GridPane();
 
@@ -26,7 +29,6 @@ public class Login
         layout_login.setHgap(8);
         layout_login.setVgap(8);
 
-        FrontPage frontPage = new FrontPage();
 
         //opretter elementer samt placere dem i forhold til hinanden med (.setConstraints)
         Label label_user = new Label("Bruger");

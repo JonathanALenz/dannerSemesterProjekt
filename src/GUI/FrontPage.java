@@ -19,9 +19,9 @@ public class FrontPage
     private Logic logic;
     private Show show;
 
-    public FrontPage()
+    public FrontPage(Logic logic)
     {
-        logic = new Logic();
+        this.logic = logic;
         show = new Show();
     }
 
